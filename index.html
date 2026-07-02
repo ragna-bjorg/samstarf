@@ -94,6 +94,35 @@
 
   /* ===== HERO ===== */
   .hero { padding: 90px 0 70px; position: relative; overflow: hidden; }
+  .hero-grid { display: flex; align-items: center; gap: 48px; }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-photos { position: relative; width: 400px; height: 460px; flex-shrink: 0; }
+  .hp-main {
+    width: 330px; height: 330px; border-radius: 50%; object-fit: cover;
+    position: absolute; top: 0; right: 0;
+    border: 8px solid var(--card);
+    box-shadow: 0 10px 40px rgba(45, 36, 24, 0.12);
+  }
+  .hp-small {
+    width: 185px; height: 185px; border-radius: 50%; object-fit: cover;
+    position: absolute; bottom: 10px; left: 10px;
+    border: 6px solid var(--card);
+    box-shadow: 0 8px 30px rgba(45, 36, 24, 0.12);
+  }
+  @media (max-width: 900px) {
+    .hero-grid { flex-direction: column-reverse; align-items: flex-start; }
+    .hero-photos { width: 100%; max-width: 340px; height: 300px; align-self: center; }
+    .hp-main { width: 230px; height: 230px; }
+    .hp-small { width: 130px; height: 130px; bottom: 0; left: 0; }
+  }
+
+  /* ===== PHOTO BANDS ===== */
+  .photo-band {
+    height: 340px;
+    background-size: cover;
+    background-position: center;
+  }
+  @media (max-width: 760px) { .photo-band { height: 220px; } }
   .hero-circle {
     position: absolute; width: 560px; height: 560px;
     border-radius: 50%; border: 1px solid var(--sage);
@@ -173,6 +202,29 @@
   .pillars-card li::before {
     content: ""; width: 6px; height: 6px; border-radius: 50%;
     background: var(--terracotta); position: absolute; left: 0; top: 0.55em;
+  }
+
+  /* ===== ROLES ===== */
+  .roles-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 28px; margin-top: 56px; text-align: center;
+  }
+  .role img {
+    width: 100%; aspect-ratio: 1; border-radius: 50%; object-fit: cover;
+    border: 6px solid var(--card);
+    box-shadow: 0 8px 26px rgba(45, 36, 24, 0.10);
+    margin-bottom: 14px;
+  }
+  .role .role-label {
+    font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--terracotta); font-weight: 700; display: block;
+  }
+  .role .role-sub {
+    font-family: "Playfair Display", serif; font-style: italic;
+    color: var(--soft); font-size: 0.9rem;
+  }
+  @media (max-width: 760px) {
+    .roles-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   }
 
   /* ===== AUDIENCE ===== */
@@ -348,16 +400,24 @@
     <div class="hero-circle"></div>
     <div class="hero-dot"></div>
     <div class="wrap">
-      <span class="small-label" style="color:var(--terracotta);">Samstarfskynning · 2026</span>
-      <span class="small-label">ragna.is</span>
-      <h1 style="margin-top:18px;">Ragna <em>Björg</em></h1>
-      <div class="tagline">....og allt sem ilmar</div>
-      <div class="pillars-line">Matur · Heimilið · Garðurinn · Ferðalög · Lífsstíll</div>
-      <div class="hero-links">
-        <a href="https://instagram.com/ragna.is" target="_blank" rel="noopener">Instagram @ragna.is</a>
-        <a href="https://facebook.com/ragna.is" target="_blank" rel="noopener">Facebook ragna.is</a>
-        <a href="https://tiktok.com/@ragnabjorg" target="_blank" rel="noopener">TikTok @ragnabjorg</a>
-        <a href="https://ragna.is" target="_blank" rel="noopener">ragna.is</a>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="small-label" style="color:var(--terracotta);">Samstarfskynning · 2026</span>
+          <span class="small-label">ragna.is</span>
+          <h1 style="margin-top:18px;">Ragna <em>Björg</em></h1>
+          <div class="tagline">....og allt sem ilmar</div>
+          <div class="pillars-line">Matur · Heimilið · Garðurinn · Ferðalög · Lífsstíll</div>
+          <div class="hero-links">
+            <a href="https://instagram.com/ragna.is" target="_blank" rel="noopener">Instagram @ragna.is</a>
+            <a href="https://facebook.com/ragna.is" target="_blank" rel="noopener">Facebook ragna.is</a>
+            <a href="https://tiktok.com/@ragnabjorg" target="_blank" rel="noopener">TikTok @ragnabjorg</a>
+            <a href="https://ragna.is" target="_blank" rel="noopener">ragna.is</a>
+          </div>
+        </div>
+        <div class="hero-photos">
+          <img class="hp-main" src="ragna.jpg" alt="Ragna Björg">
+          <img class="hp-small" src="braud.jpg" alt="Nýbakað súrdeigsbrauð">
+        </div>
       </div>
     </div>
   </header>
@@ -415,6 +475,28 @@
           </div>
         </div>
       </div>
+      <div class="roles-grid">
+        <div class="role">
+          <img src="songkona.jpg" alt="Ragna á sviði" loading="lazy">
+          <span class="role-label">Söngkonan</span>
+          <span class="role-sub">stórtónleikar og sviðið</span>
+        </div>
+        <div class="role">
+          <img src="hjukrun.jpg" alt="Ragna í vinnunni sem hjúkrunarfræðingur" loading="lazy">
+          <span class="role-label">Hjúkrunarfræðingurinn</span>
+          <span class="role-sub">fagmennska og traust</span>
+        </div>
+        <div class="role">
+          <img src="jeppi.jpg" alt="Jeppaferðir um hálendið" loading="lazy">
+          <span class="role-label">Ferðalögin</span>
+          <span class="role-sub">hálendið og heimurinn</span>
+        </div>
+        <div class="role">
+          <img src="tjald.jpg" alt="Kaffibolli í tjaldinu" loading="lazy">
+          <span class="role-label">Útiveran</span>
+          <span class="role-sub">tjaldvagn og kaffibolli</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -462,7 +544,7 @@
     </div>
   </section>
 
-  <div class="wrap"><hr class="divider"></div>
+  <div class="photo-band" style="background-image:url('bord.jpg');" role="img" aria-label="Dekkað páskaborð með köku og túlípönum"></div>
 
   <!-- SERVICES -->
   <section id="samstarf">
@@ -542,7 +624,7 @@
     </div>
   </section>
 
-  <div class="wrap"><hr class="divider"></div>
+  <div class="photo-band" style="background-image:url('raekjubraud.jpg');" role="img" aria-label="Ristað súrdeigsbrauð með rækjusalati og silungahrognum"></div>
 
   <!-- CONTACT -->
   <section id="hafa-samband">
