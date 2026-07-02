@@ -359,7 +359,7 @@
       <div class="tags">
         <span class="tag">Matur</span><span class="tag">Heimilið</span><span class="tag">Garðurinn</span><span class="tag">Ferðalög</span><span class="tag">Lífsstíll</span>
       </div>
-      <p class="profile-bio">Efnisskapari, söngkona og hjúkrunarfræðingur sem hefur bloggað síðan 2010 — súrdeig, heimilið, garðurinn og allt sem ilmar.</p>
+      <p class="profile-bio">Tæknigúrú, söngkona, efnisskapari, hjúkrunarfræðingur og lífstílsunnandi.<br>Súrdeig, græjur, heimilið, garðurinn, ferðalög og allt sem gleður.</p>
       <a class="cta-btn" href="mailto:ragna@ragna.is">Hafðu samband</a>
       <div class="profile-foot">Samstarfskynning · 2026</div>
     </aside>
@@ -588,6 +588,16 @@ document.getElementById("gateForm").addEventListener("submit", async (e) => {
 
 if (sessionStorage.getItem("ragna_auth") === PW_HASH) unlock();
 
+// ===== LÓGÓ FALLBACK: ef mynd hleðst ekki birtist nafnið í staðinn =====
+document.querySelectorAll(".logo-cell img").forEach(img => {
+  img.addEventListener("error", () => {
+    const w = document.createElement("span");
+    w.className = "logo-word";
+    w.textContent = img.alt || "";
+    img.replaceWith(w);
+  });
+});
+
 // ===== SÍÐUSTU BLOGGFÆRSLUR (Blogger JSONP) =====
 window.renderBlogPosts = function(data) {
   const el = document.getElementById("blogPosts");
@@ -607,7 +617,13 @@ window.renderBlogPosts = function(data) {
 (function() {
   const s = document.createElement("script");
   s.src = "https://www.ragna.is/feeds/posts/default?alt=json-in-script&max-results=4&callback=renderBlogPosts";
+  s.onerror = () => { document.getElementById("blogPosts").innerHTML = ""; };
   document.head.appendChild(s);
+  // Ef straumurinn svarar ekki innan 8 sek., fjarlægja "Sæki..." textann
+  setTimeout(() => {
+    const el = document.getElementById("blogPosts");
+    if (el && el.textContent.indexOf("Sæki") !== -1) el.innerHTML = "";
+  }, 8000);
 })();
 </script>
 <script async src="https://www.instagram.com/embed.js"></script>
