@@ -133,6 +133,7 @@
   }
   .chip:hover { border-color: var(--terracotta); }
   .chip .net { font-weight: 600; color: var(--soft); font-size: 0.75rem; }
+  .chip .ic { color: var(--terracotta); flex-shrink: 0; }
   .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-bottom: 18px; }
   .tag {
     background: var(--beige); color: var(--muted);
@@ -280,6 +281,9 @@
   .blog-more:hover { text-decoration: underline; }
   .ig-embeds { display: flex; flex-direction: column; gap: 14px; }
   .ig-embeds .instagram-media { margin: 0 auto !important; min-width: unset !important; border-radius: 14px !important; }
+  .ig-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+  .ig-strip .instagram-media { margin: 0 auto !important; min-width: unset !important; max-width: 100% !important; border-radius: 14px !important; }
+  @media (max-width: 700px) { .ig-strip { grid-template-columns: 1fr; } }
 
   /* contact panel */
   .contact-panel { background: var(--ink); border-radius: 20px; box-shadow: var(--shadow); padding: 38px; }
@@ -324,8 +328,8 @@
 <!-- ===== PASSWORD GATE ===== -->
 <div id="gate">
   <div class="gate-box">
-    <div class="brand-mark">ragna.is</div>
-    <h1>Ragna <em>Björg</em></h1>
+    <img src="logo.png" alt="ragna.is" style="max-width:220px;margin-bottom:10px;" onerror="this.style.display='none';document.getElementById('gateFallback').style.display='block';">
+    <h1 id="gateFallback" style="display:none;">Ragna <em>Björg</em></h1>
     <div class="tagline">....og allt sem ilmar</div>
     <form id="gateForm">
       <label for="pw">Lykilorð</label>
@@ -345,19 +349,20 @@
 
     <!-- LEFT: PROFILE CARD -->
     <aside class="profile-card">
-      <img class="avatar" src="ragna.jpg" alt="Ragna Björg">
-      <h1>Ragna <em>Björg</em></h1>
+      <img class="avatar" src="gullskyrta.jpg" alt="Ragna Björg">
+      <img src="logo.png" alt="ragna.is" style="max-width:190px;display:block;margin:0 auto 4px;" onerror="this.style.display='none';document.getElementById('cardFallback').style.display='block';">
+      <h1 id="cardFallback" style="display:none;">Ragna <em>Björg</em></h1>
       <div class="profile-tagline">....og allt sem ilmar</div>
       <div class="profile-loc">🇮🇸 Ísland · ragna.is</div>
       <div class="total-line">Samanlögð mánaðarleg áhorf: <b>1,3M+</b></div>
       <div class="chips">
-        <a class="chip" href="https://instagram.com/ragna.is" target="_blank" rel="noopener"><span class="net">IG</span> 7.300</a>
-        <a class="chip" href="https://facebook.com/ragna.is" target="_blank" rel="noopener"><span class="net">FB</span> 5.800</a>
-        <a class="chip" href="https://tiktok.com/@ragnabjorg" target="_blank" rel="noopener"><span class="net">TT</span> 1.600</a>
-        <a class="chip" href="https://ragna.is" target="_blank" rel="noopener"><span class="net">Blogg</span> 42K</a>
+        <a class="chip" href="https://instagram.com/ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg> 7.300</a>
+        <a class="chip" href="https://facebook.com/ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.7V21h2.8z"/></svg> 5.800</a>
+        <a class="chip" href="https://tiktok.com/@ragnabjorg" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M16.6 3c.4 2 1.7 3.4 3.9 3.6v2.8c-1.5 0-2.8-.4-3.9-1.2v5.7c0 4.6-4.9 6.9-8.2 4.2-2.2-1.8-2.3-5.3-.2-7.2 1.2-1.1 2.7-1.5 4.3-1.2v2.9c-.9-.3-1.8-.2-2.5.5-1 1-.8 2.6.4 3.4 1.6 1 3.4-.2 3.4-2.1V3h2.8z"/></svg> 1.600</a>
+        <a class="chip" href="https://ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c-5.5 5.5-5.5 13.5 0 19M12 2.5c5.5 5.5 5.5 13.5 0 19"/></svg> 42K</a>
       </div>
       <div class="tags">
-        <span class="tag">Matur</span><span class="tag">Heimilið</span><span class="tag">Garðurinn</span><span class="tag">Ferðalög</span><span class="tag">Lífsstíll</span>
+        <span class="tag">Matur</span><span class="tag">Heimilið</span><span class="tag">Garðurinn</span><span class="tag">Tækni</span><span class="tag">Ferðalög</span><span class="tag">Lífsstíll</span>
       </div>
       <p class="profile-bio">Tæknigúrú, söngkona, efnisskapari, hjúkrunarfræðingur og lífstílsunnandi.<br>Súrdeig, græjur, heimilið, garðurinn, ferðalög og allt sem gleður.</p>
       <a class="cta-btn" href="mailto:ragna@ragna.is">Hafðu samband</a>
@@ -405,10 +410,33 @@
         </div>
       </section>
 
+      <!-- PARTNERS -->
+      <section class="panel">
+        <h2>Hef unnið <em>með</em></h2>
+        <div class="panel-sub">Vörumerki sem ég hef unnið með í kostuðum birtingum, uppskriftaþróun og öðru samstarfi</div>
+        <div class="logo-row">
+          <div class="logo-cell"><img src="https://innnes.is/build/assets/logo.svg" alt="Innnes" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://www.isband.is/wp-content/uploads/2019/08/isband_logo_300x58.jpg" alt="ÍSBAND" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://lindsay.is/wp-content/uploads/2019/10/Lindsay_logo.png" alt="John Lindsay" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://danol.is/_content/OlgerdinVeva.Theme/assets/images/danol-web-logo.svg" alt="Danól" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://www.datocms-assets.com/96861/1730180156-utilif-1.svg" alt="Útilíf" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://x-sense.is/cdn/shop/files/X-Sense_LOGO-4.png?width=400" alt="X-Sense" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://static.wixstatic.com/media/28fcbb_b7b27e4d1fd945b086ad8e69ee61820a~mv2.png/v1/fill/w_236,h_230,al_c,q_85,enc_avif,quality_auto/AGRO-R-06-01.png" alt="Agro" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://static.wixstatic.com/media/246ff6_ea0e519deb474cf897fdb74bff3c5ffb~mv2.png/v1/fill/w_380,h_360,al_c,q_85,enc_avif,quality_auto/Original.png" alt="BEI Import" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://zikzakverslun.is/wp-content/uploads/2022/10/header-logo.png" alt="ZikZak" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://www.hraunsnef.is/icon.webp" alt="Hraunsnef Sveitahótel" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg" alt="Coca-Cola" loading="lazy"></div>
+          <div class="logo-cell"><img src="https://circolo.is/cdn/shop/files/logo_9f32ead8-a651-4dd2-9ea0-369b78a9c6d1.png?width=320" alt="Circolo" loading="lazy"></div>
+          <div class="logo-cell"><span class="logo-word">Nói Síríus</span></div>
+          <div class="logo-cell"><span class="logo-word">Knox Hotels</span></div>
+          <div class="logo-cell"><span class="logo-word">Vaxa</span></div>
+        </div>
+      </section>
+
       <!-- AUDIENCE -->
       <section class="panel">
         <h2>Tryggir <em>áhorfendur</em></h2>
-        <div class="panel-sub">Íslenskar konur með háan kaupmátt sem taka ákvarðanir um innkaup heimilisins</div>
+        <div class="panel-sub">Íslenskar konur með mikinn kaupmátt sem taka ákvarðanir um innkaup heimilisins</div>
         <div class="aud-grid2">
           <div class="aud-box">
             <h3><span class="dot"></span>Kyn</h3>
@@ -442,13 +470,11 @@
         </div>
       </section>
 
-      <!-- ABOUT + ROLES -->
+      <!-- ROLES -->
       <section class="panel bio-panel">
         <h2>Hæ, ég er <em>Ragna</em>.</h2>
-        <div class="panel-sub">Stutt um mig</div>
-        <p>Á daginn starfa ég í íslenskri tækninýsköpun. Ég starfa einnig sem söngkona, hjúkrunarfræðingur og efnisskapari. Á ragna.is hef ég bloggað síðan 2010, þar sem ég deili uppskriftum, hugmyndum og hversdagsfegurð heimilisins — áhuginn liggur í súrdeigi og bakstri, en líka í innanhússhönnun og öllu því sem gerir heimilið hlýlegt og lifandi.</p>
-        <p>Síðustu ár hef ég fært mig að mestu yfir á samfélagsmiðla þar sem fylgjendur fá að vera hluti af daglegu lífi sem fylgir því að reka sex manna heimili, syngja á stórtónleikum og pæla í næstu verkefnum. Fylgjendur mínir prófa það sem ég mæli með og deila því áfram — það skilar árangri fyrir vörumerkin sem ég vinn með.</p>
-        <div class="roles-grid" style="margin-top:26px;">
+        <div class="panel-sub">Mörg hlutverk — eitt vörumerki</div>
+        <div class="roles-grid">
           <div class="role">
             <img src="songkona.jpg" alt="Ragna á sviði" loading="lazy">
             <span class="role-label">Söngkonan</span>
@@ -492,45 +518,15 @@
         </div>
       </section>
 
-      <!-- PARTNERS -->
+      <!-- INSTAGRAM STRIP -->
       <section class="panel">
-        <h2>Hef unnið <em>með</em></h2>
-        <div class="panel-sub">Vörumerki sem ég hef unnið með í kostuðum birtingum, uppskriftaþróun og öðru samstarfi</div>
-        <div class="logo-row">
-          <div class="logo-cell"><img src="https://innnes.is/build/assets/logo.svg" alt="Innnes" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://www.isband.is/wp-content/uploads/2019/08/isband_logo_300x58.jpg" alt="ÍSBAND" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://lindsay.is/wp-content/uploads/2019/10/Lindsay_logo.png" alt="John Lindsay" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://danol.is/_content/OlgerdinVeva.Theme/assets/images/danol-web-logo.svg" alt="Danól" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://www.datocms-assets.com/96861/1730180156-utilif-1.svg" alt="Útilíf" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://x-sense.is/cdn/shop/files/X-Sense_LOGO-4.png?width=400" alt="X-Sense" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://static.wixstatic.com/media/28fcbb_b7b27e4d1fd945b086ad8e69ee61820a~mv2.png/v1/fill/w_236,h_230,al_c,q_85,enc_avif,quality_auto/AGRO-R-06-01.png" alt="Agro" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://static.wixstatic.com/media/246ff6_ea0e519deb474cf897fdb74bff3c5ffb~mv2.png/v1/fill/w_380,h_360,al_c,q_85,enc_avif,quality_auto/Original.png" alt="BEI Import" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://zikzakverslun.is/wp-content/uploads/2022/10/header-logo.png" alt="ZikZak" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://www.hraunsnef.is/icon.webp" alt="Hraunsnef Sveitahótel" loading="lazy"></div>
-          <div class="logo-cell"><span class="logo-word">Knox Hotels</span></div>
-          <div class="logo-cell"><span class="logo-word">Vaxa</span></div>
+        <h2>Mest skoðað á <em>Instagram</em></h2>
+        <div class="panel-sub">Vinsælustu reels-in — live tölur beint frá Instagram</div>
+        <div class="ig-strip">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZDQLSqIsGR/" data-instgrm-version="14"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZvsEEWoxkO/" data-instgrm-version="14"></blockquote>
         </div>
-      </section>
-
-      <!-- LATEST POSTS -->
-      <section class="panel">
-        <h2>Síðustu <em>færslur</em></h2>
-        <div class="panel-sub">Nýjast frá mér — uppfærist sjálfkrafa</div>
-        <div class="latest-grid">
-          <div class="latest-col">
-            <span class="small-label">Af blogginu · ragna.is</span>
-            <div id="blogPosts"><p style="color:var(--soft);font-style:italic;">Sæki nýjustu færslur…</p></div>
-            <a class="blog-more" href="https://www.ragna.is" target="_blank" rel="noopener">Skoða bloggið →</a>
-          </div>
-          <div class="latest-col">
-            <span class="small-label">Af Instagram · @ragna.is</span>
-            <div class="ig-embeds">
-              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZDQLSqIsGR/" data-instgrm-version="14"></blockquote>
-              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZvsEEWoxkO/" data-instgrm-version="14"></blockquote>
-            </div>
-            <a class="blog-more" href="https://www.instagram.com/ragna.is" target="_blank" rel="noopener">Fylgja á Instagram →</a>
-          </div>
-        </div>
+        <a class="blog-more" href="https://www.instagram.com/ragna.is" target="_blank" rel="noopener">Fylgja á Instagram →</a>
       </section>
 
       <!-- CONTACT -->
@@ -598,33 +594,6 @@ document.querySelectorAll(".logo-cell img").forEach(img => {
   });
 });
 
-// ===== SÍÐUSTU BLOGGFÆRSLUR (Blogger JSONP) =====
-window.renderBlogPosts = function(data) {
-  const el = document.getElementById("blogPosts");
-  if (!data.feed || !data.feed.entry) { el.innerHTML = ""; return; }
-  const months = ["janúar","febrúar","mars","apríl","maí","júní","júlí","ágúst","september","október","nóvember","desember"];
-  el.innerHTML = data.feed.entry.slice(0, 4).map(e => {
-    const link = (e.link.find(l => l.rel === "alternate") || {}).href || "https://www.ragna.is";
-    const title = e.title.$t;
-    const d = new Date(e.published.$t);
-    const date = d.getDate() + ". " + months[d.getMonth()] + " " + d.getFullYear();
-    let thumb = e.media$thumbnail ? e.media$thumbnail.url.replace("/s72-c/", "/s400-c/").replace("=s72-c", "=s400-c") : "";
-    const img = thumb ? '<img src="' + thumb + '" alt="" loading="lazy">' : "";
-    return '<a class="blog-post" href="' + link + '" target="_blank" rel="noopener">' + img +
-           '<span><span class="bp-title">' + title + '</span><span class="bp-date">' + date + '</span></span></a>';
-  }).join("");
-};
-(function() {
-  const s = document.createElement("script");
-  s.src = "https://www.ragna.is/feeds/posts/default?alt=json-in-script&max-results=4&callback=renderBlogPosts";
-  s.onerror = () => { document.getElementById("blogPosts").innerHTML = ""; };
-  document.head.appendChild(s);
-  // Ef straumurinn svarar ekki innan 8 sek., fjarlægja "Sæki..." textann
-  setTimeout(() => {
-    const el = document.getElementById("blogPosts");
-    if (el && el.textContent.indexOf("Sæki") !== -1) el.innerHTML = "";
-  }, 8000);
-})();
 </script>
 <script async src="https://www.instagram.com/embed.js"></script>
 
