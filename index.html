@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Ragna.is · Samstarf</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@600&display=swap" rel="stylesheet">
@@ -239,6 +242,36 @@
   }
   footer .accent { font-family: "Caveat", cursive; font-weight: 600; font-size: 1.05rem; color: var(--toasted); }
 
+  /* ===== LÆST EFNI ===== */
+  .locked { position: relative; }
+  .locked .lock-blur { filter: blur(11px); pointer-events: none; user-select: none; }
+  .lock-overlay {
+    position: absolute; inset: 0; z-index: 5;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; padding: 24px; text-align: center; border-radius: 20px; cursor: pointer;
+  }
+  .lock-overlay .lock-hint {
+    font-size: 0.88rem; color: var(--crust); font-weight: 700;
+    background: var(--flour); border: 1px solid var(--line-soft);
+    border-radius: 999px; padding: 9px 18px;
+    box-shadow: var(--shadow);
+  }
+  .lock-form { display: none; gap: 8px; }
+  .locked:hover .lock-form, .locked.show .lock-form, .lock-form:focus-within { display: flex; }
+  .lock-form input {
+    padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px;
+    background: var(--flour); color: var(--crust); font-family: inherit;
+    font-size: 0.9rem; outline: none; text-align: center; width: 180px;
+  }
+  .lock-form input:focus { border-color: var(--wheat); }
+  .lock-form button {
+    padding: 10px 20px; border: none; border-radius: 999px; cursor: pointer;
+    background: var(--wheat); color: var(--crust); font-family: inherit;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .lock-form button:hover { background: var(--wheat-dark); }
+  .lock-error { font-size: 0.8rem; color: var(--crust); font-weight: 600; min-height: 1.2em; }
+
   @media (max-width: 980px) {
     .layout { grid-template-columns: 1fr; padding-top: 110px; }
     .profile-card { position: static; }
@@ -286,9 +319,10 @@
   <div class="main-col">
 
     <!-- STATS -->
-    <section class="panel">
+    <section class="panel locked">
       <h2>Tölfræði <em>&amp; dreifing</em></h2>
       <div class="panel-sub">Uppfært í júní 2026</div>
+      <div class="lock-blur">
       <div class="stats-grid">
         <div class="stat-card hero-stat">
           <div class="st-label"><span class="dot"></span>Áhorf á mánuði</div>
@@ -321,35 +355,22 @@
           <div class="st-note">efnið nær langt út fyrir fylgjendahópinn</div>
         </div>
       </div>
-    </section>
-
-    <!-- PARTNERS -->
-    <section class="panel">
-      <h2>Hef unnið <em>með</em></h2>
-      <div class="panel-sub">Vörumerki sem ég hef unnið með í kostuðum birtingum, uppskriftaþróun og öðru samstarfi</div>
-      <div class="logo-row">
-        <div class="logo-cell"><img src="https://innnes.is/build/assets/logo.svg" alt="Innnes" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://www.isband.is/wp-content/uploads/2019/08/isband_logo_300x58.jpg" alt="ÍSBAND" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://lindsay.is/wp-content/uploads/2019/10/Lindsay_logo.png" alt="John Lindsay" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://danol.is/_content/OlgerdinVeva.Theme/assets/images/danol-web-logo.svg" alt="Danól" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://www.datocms-assets.com/96861/1730180156-utilif-1.svg" alt="Útilíf" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://x-sense.is/cdn/shop/files/X-Sense_LOGO-4.png?width=400" alt="X-Sense" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://static.wixstatic.com/media/28fcbb_b7b27e4d1fd945b086ad8e69ee61820a~mv2.png/v1/fill/w_236,h_230,al_c,q_85,enc_avif,quality_auto/AGRO-R-06-01.png" alt="Agro" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://static.wixstatic.com/media/246ff6_ea0e519deb474cf897fdb74bff3c5ffb~mv2.png/v1/fill/w_380,h_360,al_c,q_85,enc_avif,quality_auto/Original.png" alt="BEI Import" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://zikzakverslun.is/wp-content/uploads/2022/10/header-logo.png" alt="ZikZak" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://www.hraunsnef.is/icon.webp" alt="Hraunsnef Sveitahótel" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg" alt="Coca-Cola" loading="lazy"></div>
-        <div class="logo-cell"><img src="https://circolo.is/cdn/shop/files/logo_9f32ead8-a651-4dd2-9ea0-369b78a9c6d1.png?width=320" alt="Circolo" loading="lazy"></div>
-        <div class="logo-cell"><img src="noisirius.png" alt="Nói Síríus" loading="lazy"></div>
-        <div class="logo-cell"><span class="logo-word">Knox Hotels</span></div>
-        <div class="logo-cell"><span class="logo-word">Vaxa</span></div>
+    </div>
+      <div class="lock-overlay">
+        <div class="lock-hint">🔒 Læst efni</div>
+        <form class="lock-form">
+          <input type="password" placeholder="Aðgangsorð" autocomplete="off" aria-label="Aðgangsorð">
+          <button type="submit">Opna</button>
+        </form>
+        <div class="lock-error"></div>
       </div>
     </section>
 
     <!-- AUDIENCE -->
-    <section class="panel">
+    <section class="panel locked">
       <h2>Tryggir <em>áhorfendur</em></h2>
       <div class="panel-sub">Íslenskar konur með mikinn kaupmátt sem taka ákvarðanir um innkaup heimilisins</div>
+      <div class="lock-blur">
       <div class="aud-grid2">
         <div class="aud-box">
           <h3><span class="dot"></span>Kyn</h3>
@@ -381,6 +402,15 @@
         <div class="quote-mark">"</div>
         <p>Kjarnasvæðið er <strong>konur 35 ára og eldri á Íslandi</strong> — hópur sem ákveður stóran hluta af innkaupum heimilisins, eldar og bakar reglulega, stendur í framkvæmdum og treystir meðmælum frá þeim sem þær fylgja.</p>
       </div>
+    </div>
+      <div class="lock-overlay">
+        <div class="lock-hint">🔒 Læst efni</div>
+        <form class="lock-form">
+          <input type="password" placeholder="Aðgangsorð" autocomplete="off" aria-label="Aðgangsorð">
+          <button type="submit">Opna</button>
+        </form>
+        <div class="lock-error"></div>
+      </div>
     </section>
 
     <!-- COLLAGE -->
@@ -388,6 +418,39 @@
       <h2>Hæ, ég er <em>Ragna</em>.</h2>
       <div class="panel-sub">Eldhúsið, garðurinn og útiveran — daglegt líf í myndum</div>
       <img class="collage-img" src="collage.jpg" alt="Ragna Björg — bakstur, garðurinn, útivera">
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="panel locked">
+      <h2>Hef unnið <em>með</em></h2>
+      <div class="panel-sub">Vörumerki sem ég hef unnið með í kostuðum birtingum, uppskriftaþróun og öðru samstarfi</div>
+      <div class="lock-blur">
+      <div class="logo-row">
+        <div class="logo-cell"><img src="https://innnes.is/build/assets/logo.svg" alt="Innnes" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://www.isband.is/wp-content/uploads/2019/08/isband_logo_300x58.jpg" alt="ÍSBAND" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://lindsay.is/wp-content/uploads/2019/10/Lindsay_logo.png" alt="John Lindsay" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://danol.is/_content/OlgerdinVeva.Theme/assets/images/danol-web-logo.svg" alt="Danól" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://www.datocms-assets.com/96861/1730180156-utilif-1.svg" alt="Útilíf" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://x-sense.is/cdn/shop/files/X-Sense_LOGO-4.png?width=400" alt="X-Sense" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://static.wixstatic.com/media/28fcbb_b7b27e4d1fd945b086ad8e69ee61820a~mv2.png/v1/fill/w_236,h_230,al_c,q_85,enc_avif,quality_auto/AGRO-R-06-01.png" alt="Agro" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://static.wixstatic.com/media/246ff6_ea0e519deb474cf897fdb74bff3c5ffb~mv2.png/v1/fill/w_380,h_360,al_c,q_85,enc_avif,quality_auto/Original.png" alt="BEI Import" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://zikzakverslun.is/wp-content/uploads/2022/10/header-logo.png" alt="ZikZak" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://www.hraunsnef.is/icon.webp" alt="Hraunsnef Sveitahótel" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg" alt="Coca-Cola" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://circolo.is/cdn/shop/files/logo_9f32ead8-a651-4dd2-9ea0-369b78a9c6d1.png?width=320" alt="Circolo" loading="lazy"></div>
+        <div class="logo-cell"><img src="noisirius.png" alt="Nói Síríus" loading="lazy"></div>
+        <div class="logo-cell"><img src="knox.png" alt="Knox Hotels" loading="lazy"></div>
+        <div class="logo-cell"><img src="vaxa.png" alt="Vaxa" loading="lazy"></div>
+      </div>
+    </div>
+      <div class="lock-overlay">
+        <div class="lock-hint">🔒 Læst efni</div>
+        <form class="lock-form">
+          <input type="password" placeholder="Aðgangsorð" autocomplete="off" aria-label="Aðgangsorð">
+          <button type="submit">Opna</button>
+        </form>
+        <div class="lock-error"></div>
+      </div>
     </section>
 
     <!-- SERVICES -->
@@ -443,6 +506,38 @@ document.querySelectorAll(".logo-cell img").forEach(img => {
     img.replaceWith(w);
   });
 });
+
+// ===== LÆST EFNI (aðgangsorð opnar allt í einu) =====
+const LOCK_HASH = "e54bcfbdb4a1c2e1c5c2cebdbeb3dace431429a218bb0bff16193a00f8868e5b";
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
+function unlockAll() {
+  document.querySelectorAll(".locked").forEach(sec => {
+    const b = sec.querySelector(".lock-blur"); if (b) b.classList.remove("lock-blur");
+    const o = sec.querySelector(".lock-overlay"); if (o) o.remove();
+    sec.classList.remove("locked", "show");
+  });
+}
+document.querySelectorAll(".lock-overlay").forEach(o => {
+  o.addEventListener("click", () => o.closest(".locked").classList.add("show"));
+});
+document.querySelectorAll(".lock-form").forEach(f => {
+  f.addEventListener("submit", async e => {
+    e.preventDefault();
+    const input = f.querySelector("input");
+    const h = await sha256(input.value.trim());
+    if (h === LOCK_HASH) {
+      sessionStorage.setItem("ragna_unlock", h);
+      unlockAll();
+    } else {
+      f.parentElement.querySelector(".lock-error").textContent = "Rangt aðgangsorð";
+      input.value = ""; input.focus();
+    }
+  });
+});
+if (sessionStorage.getItem("ragna_unlock") === LOCK_HASH) unlockAll();
 
 // ===== POSTHOG =====
 // Settu project API key frá PostHog hér (Settings → Project API key)
