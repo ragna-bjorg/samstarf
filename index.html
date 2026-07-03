@@ -4,35 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Ragna Björg · Samstarf</title>
+<title>Ragna.is · Samstarf</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F8F1E7;
-    --card: #FFFEFB;
-    --ink: #2D2418;
-    --body: #3D3326;
-    --muted: #5C4F3F;
-    --soft: #8B7355;
-    --terracotta: #C8654A;
-    --terracotta-dark: #B05539;
-    --salmon: #E8A48F;
-    --sage: #8FA079;
-    --tan: #B89968;
-    --line: #D4C4AA;
-    --line-soft: #EDE0CC;
-    --beige: #F0E6D4;
-    --shadow: 0 4px 24px rgba(45, 36, 24, 0.08);
+    /* ragna.is brand palette (sourdough) */
+    --crust: #4A3524;      /* all lettering, logo ink */
+    --toasted: #8A6844;    /* secondary text, captions */
+    --wheat: #D8B077;      /* single accent, sparingly */
+    --wheat-dark: #C89B5E;
+    --crumb: #EDE4D3;      /* panels, dividers */
+    --flour: #F7F1E6;      /* light background */
+    --line: #D8CBB4;
+    --line-soft: #E5DAC5;
+    --shadow: 0 4px 24px rgba(74, 53, 36, 0.08);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: "Source Sans 3", sans-serif;
-    color: var(--body);
+    font-family: "Gantari", sans-serif;
+    font-weight: 400;
+    color: var(--crust);
     line-height: 1.55;
-    background-color: var(--cream);
+    background-color: var(--flour);
   }
   /* ===== PHOTO BACKGROUND ===== */
   .bg-photos { position: fixed; inset: 0; z-index: -2; }
@@ -44,52 +40,15 @@
   .bg-photos .bg-right { right: 0; background-image: url('braud.jpg'); }
   .bg-photos::after {
     content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(248,241,231,0.90) 0%, rgba(248,241,231,0.86) 40%, rgba(248,241,231,0.93) 100%);
+    background: linear-gradient(180deg, rgba(247,241,230,0.92) 0%, rgba(247,241,230,0.88) 40%, rgba(247,241,230,0.95) 100%);
   }
-  h1, h2, h3, .serif { font-family: "Playfair Display", serif; font-weight: 400; color: var(--ink); }
+  h1, h2, h3 { font-family: "Gantari", sans-serif; font-weight: 700; color: var(--crust); }
+  .accent-script { font-family: "Caveat", cursive; font-weight: 600; }
   .small-label {
     font-size: 0.7rem; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--terracotta);
+    text-transform: uppercase; color: var(--toasted);
     font-weight: 700;
   }
-
-  /* ===== PASSWORD GATE ===== */
-  #gate {
-    position: fixed; inset: 0; z-index: 1000;
-    background: var(--cream);
-    display: flex; align-items: center; justify-content: center;
-    padding: 24px;
-  }
-  .gate-box { max-width: 420px; width: 100%; text-align: center; }
-  .gate-box .brand-mark {
-    font-family: "Playfair Display", serif; font-style: italic;
-    font-size: 1.1rem; color: var(--sage); letter-spacing: 1px; margin-bottom: 28px;
-  }
-  .gate-box h1 { font-size: 2.4rem; margin-bottom: 8px; }
-  .gate-box h1 em { color: var(--terracotta); }
-  .gate-box .tagline { font-family: "Playfair Display", serif; font-style: italic; color: var(--soft); margin-bottom: 36px; }
-  .gate-box label {
-    display: block; font-size: 0.72rem; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--soft); font-weight: 700; margin-bottom: 10px;
-  }
-  .gate-box input {
-    width: 100%; padding: 14px 16px; font-size: 1rem; font-family: inherit;
-    border: 1px solid var(--line); background: var(--card); color: var(--ink);
-    text-align: center; letter-spacing: 2px; outline: none; border-radius: 8px;
-  }
-  .gate-box input:focus { border-color: var(--terracotta); }
-  .gate-box button {
-    margin-top: 16px; width: 100%; padding: 14px;
-    font-family: inherit; font-size: 0.8rem; font-weight: 700;
-    letter-spacing: 3px; text-transform: uppercase;
-    background: var(--terracotta); color: #fff;
-    border: none; cursor: pointer; border-radius: 999px;
-    transition: background 0.2s;
-  }
-  .gate-box button:hover { background: var(--terracotta-dark); }
-  .gate-error { margin-top: 14px; font-size: 0.85rem; color: var(--terracotta); font-style: italic; min-height: 1.4em; }
-  .gate-foot { margin-top: 40px; font-size: 0.75rem; color: var(--soft); letter-spacing: 1px; }
-  #content { display: none; }
 
   /* ===== LAYOUT ===== */
   .layout {
@@ -99,154 +58,143 @@
     align-items: start;
   }
 
-  /* ===== PROFILE CARD (left, sticky) ===== */
+  /* ===== PROFILE CARD ===== */
   .profile-card {
     position: sticky; top: 28px;
-    background: var(--card); border-radius: 20px;
+    background: var(--crumb); border-radius: 20px;
     box-shadow: var(--shadow);
     padding: 0 30px 30px; text-align: center;
     margin-top: 92px;
   }
   .avatar {
     width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
-    border: 7px solid var(--card);
-    box-shadow: 0 8px 30px rgba(45, 36, 24, 0.15);
+    border: 7px solid var(--flour);
+    box-shadow: 0 8px 30px rgba(74, 53, 36, 0.15);
     margin-top: -92px; margin-bottom: 14px;
-    background: var(--beige);
+    background: var(--flour);
   }
-  .profile-card h1 { font-size: 2.2rem; line-height: 1.05; }
-  .profile-card h1 em { color: var(--terracotta); }
+  .wordmark { max-width: 200px; display: block; margin: 0 auto 2px; }
   .profile-tagline {
-    font-family: "Playfair Display", serif; font-style: italic;
-    color: var(--soft); margin: 6px 0 4px;
+    font-family: "Caveat", cursive; font-weight: 600;
+    font-size: 1.35rem; color: var(--toasted); margin: 2px 0 4px;
   }
-  .profile-loc { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
-  .total-line { font-size: 0.9rem; color: var(--muted); margin-bottom: 14px; }
-  .total-line b { font-family: "Playfair Display", serif; font-size: 1.15rem; color: var(--terracotta); }
+  .profile-loc { font-size: 0.85rem; color: var(--toasted); margin-bottom: 16px; }
+  .total-line { font-size: 0.9rem; color: var(--toasted); margin-bottom: 14px; }
+  .total-line b { font-weight: 700; font-size: 1.15rem; color: var(--crust); }
   .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 16px; }
   .chip {
     display: inline-flex; align-items: center; gap: 6px;
-    border: 1px solid var(--line-soft); background: #fff;
+    border: 1px solid var(--line-soft); background: var(--flour);
     border-radius: 999px; padding: 6px 13px;
-    font-size: 0.82rem; font-weight: 700; color: var(--ink);
+    font-size: 0.82rem; font-weight: 700; color: var(--crust);
     text-decoration: none; transition: border-color .2s;
   }
-  .chip:hover { border-color: var(--terracotta); }
-  .chip .net { font-weight: 600; color: var(--soft); font-size: 0.75rem; }
-  .chip .ic { color: var(--terracotta); flex-shrink: 0; }
+  .chip:hover { border-color: var(--wheat); }
+  .chip .ic { color: var(--toasted); flex-shrink: 0; }
   .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-bottom: 18px; }
   .tag {
-    background: var(--beige); color: var(--muted);
+    background: var(--flour); color: var(--toasted);
     border-radius: 999px; padding: 5px 13px; font-size: 0.78rem; font-weight: 600;
   }
-  .profile-bio { font-size: 0.92rem; color: var(--muted); margin-bottom: 22px; }
+  .profile-bio { font-size: 0.92rem; color: var(--toasted); margin-bottom: 22px; }
   .cta-btn {
     display: block; width: 100%; padding: 15px;
-    background: var(--terracotta); color: #fff;
+    background: var(--wheat); color: var(--crust);
     border-radius: 999px; text-decoration: none;
     font-size: 0.82rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
     transition: background .2s;
   }
-  .cta-btn:hover { background: var(--terracotta-dark); }
-  .profile-foot { margin-top: 16px; font-size: 0.72rem; color: var(--soft); letter-spacing: 1px; }
+  .cta-btn:hover { background: var(--wheat-dark); }
+  .profile-foot { margin-top: 16px; font-size: 0.72rem; color: var(--toasted); letter-spacing: 1px; }
 
   /* ===== RIGHT COLUMN ===== */
   .main-col { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
   .panel {
-    background: var(--card); border-radius: 20px;
+    background: var(--crumb); border-radius: 20px;
     box-shadow: var(--shadow); padding: 34px;
   }
   .panel > h2 { font-size: 1.7rem; margin-bottom: 6px; }
-  .panel > h2 em { color: var(--terracotta); }
-  .panel-sub { font-size: 0.82rem; color: var(--soft); font-style: italic; margin-bottom: 22px; }
+  .panel > h2 em { font-style: normal; color: var(--toasted); }
+  .panel-sub { font-size: 0.85rem; color: var(--toasted); font-style: italic; margin-bottom: 22px; }
 
   /* stats grid */
   .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .stat-card {
     border: 1px solid var(--line-soft); border-radius: 14px;
-    padding: 18px 20px; background: #fff;
+    padding: 18px 20px; background: var(--flour);
   }
   .stat-card .st-label {
     display: flex; align-items: center; gap: 7px;
-    font-size: 0.82rem; color: var(--muted); font-weight: 600; margin-bottom: 6px;
+    font-size: 0.82rem; color: var(--toasted); font-weight: 600; margin-bottom: 6px;
   }
-  .stat-card .st-label .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--terracotta); flex-shrink: 0; }
-  .stat-card.sage .st-label .dot { background: var(--sage); }
-  .stat-card.tan .st-label .dot { background: var(--tan); }
-  .stat-card .st-value { font-family: "Playfair Display", serif; font-size: 2rem; line-height: 1.1; color: var(--ink); }
-  .stat-card .st-note { font-size: 0.72rem; color: var(--soft); margin-top: 3px; }
-  .stat-card.hero-stat { background: var(--ink); border-color: var(--ink); }
-  .stat-card.hero-stat .st-label { color: var(--salmon); }
-  .stat-card.hero-stat .st-label .dot { background: var(--salmon); }
-  .stat-card.hero-stat .st-value { color: var(--cream); }
-  .stat-card.hero-stat .st-note { color: var(--tan); }
+  .stat-card .st-label .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wheat); flex-shrink: 0; }
+  .stat-card.t2 .st-label .dot { background: var(--toasted); }
+  .stat-card .st-value { font-weight: 700; font-size: 2rem; line-height: 1.1; color: var(--crust); }
+  .stat-card .st-note { font-size: 0.72rem; color: var(--toasted); margin-top: 3px; }
+  .stat-card.hero-stat { background: var(--crust); border-color: var(--crust); }
+  .stat-card.hero-stat .st-label { color: var(--wheat); }
+  .stat-card.hero-stat .st-label .dot { background: var(--wheat); }
+  .stat-card.hero-stat .st-value { color: var(--flour); }
+  .stat-card.hero-stat .st-note { color: var(--wheat); }
 
   /* audience */
   .aud-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .aud-box { border: 1px solid var(--line-soft); border-radius: 14px; padding: 20px 22px; background: #fff; }
-  .aud-box h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  .aud-box h3 .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--terracotta); }
+  .aud-box { border: 1px solid var(--line-soft); border-radius: 14px; padding: 20px 22px; background: var(--flour); }
+  .aud-box h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .aud-box h3 .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--wheat); }
   .aud-box.full { grid-column: span 2; }
   .gender-split { display: flex; justify-content: center; gap: 44px; text-align: center; padding: 8px 0 4px; }
-  .gender-percent { font-family: "Playfair Display", serif; font-size: 2.4rem; line-height: 1; }
-  .gender-percent.women { color: var(--terracotta); }
-  .gender-percent.men { color: var(--tan); }
-  .gender-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+  .gender-percent { font-weight: 700; font-size: 2.4rem; line-height: 1; }
+  .gender-percent.women { color: var(--crust); }
+  .gender-percent.men { color: var(--toasted); }
+  .gender-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--toasted); margin-top: 6px; }
   .bar-row { display: flex; align-items: center; margin-bottom: 9px; font-size: 0.86rem; }
-  .bar-label { width: 100px; color: var(--muted); font-weight: 600; flex-shrink: 0; }
+  .bar-label { width: 100px; color: var(--toasted); font-weight: 600; flex-shrink: 0; }
   .bar-label.narrow { width: 52px; }
-  .bar-bg { flex: 1; height: 12px; background: var(--line-soft); border-radius: 999px; margin: 0 12px; overflow: hidden; }
-  .bar-fill { height: 100%; background: var(--terracotta); border-radius: 999px; }
-  .bar-fill.sage { background: var(--sage); }
-  .bar-val { width: 48px; text-align: right; font-family: "Playfair Display", serif; font-weight: 600; color: var(--ink); font-size: 0.95rem; }
-  .aud-note { font-size: 0.8rem; color: var(--soft); font-style: italic; margin-top: 12px; }
+  .bar-bg { flex: 1; height: 12px; background: var(--crumb); border-radius: 999px; margin: 0 12px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--wheat); border-radius: 999px; }
+  .bar-fill.t2 { background: var(--toasted); }
+  .bar-val { width: 48px; text-align: right; font-weight: 700; color: var(--crust); font-size: 0.95rem; }
+  .aud-note { font-size: 0.8rem; color: var(--toasted); font-style: italic; margin-top: 12px; }
   .insight-box {
     margin-top: 14px; padding: 22px 28px 22px 52px;
-    background: var(--ink); border-radius: 14px; color: var(--cream); position: relative;
+    background: var(--crust); border-radius: 14px; color: var(--flour); position: relative;
   }
   .insight-box .quote-mark {
     position: absolute; left: 18px; top: 4px;
-    font-family: "Playfair Display", serif; font-size: 2.6rem; color: var(--terracotta); line-height: 1;
+    font-family: "Caveat", cursive; font-size: 2.8rem; color: var(--wheat); line-height: 1;
   }
-  .insight-box p { font-family: "Playfair Display", serif; font-style: italic; font-size: 1.02rem; line-height: 1.5; }
-  .insight-box strong { color: var(--salmon); font-style: normal; }
+  .insight-box p { font-family: "Caveat", cursive; font-weight: 600; font-size: 1.35rem; line-height: 1.4; }
+  .insight-box strong { color: var(--wheat); }
 
-  /* roles */
-  .roles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-  .role img {
-    width: 100%; aspect-ratio: 1; border-radius: 50%; object-fit: cover;
-    border: 5px solid var(--beige); margin-bottom: 10px;
-  }
-  .role .role-label { font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--terracotta); font-weight: 700; display: block; }
-  .role .role-sub { font-family: "Playfair Display", serif; font-style: italic; color: var(--soft); font-size: 0.85rem; }
-
-  /* bio panel */
-  .bio-panel p { margin-bottom: 13px; font-size: 0.95rem; }
+  /* collage */
+  .collage-img { width: 100%; height: auto; display: block; border-radius: 14px; }
 
   /* services */
   .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .service-card {
     border: 1px solid var(--line-soft); border-radius: 14px;
-    background: #fff; padding: 18px 20px;
-    border-top: 3px solid var(--terracotta);
+    background: var(--flour); padding: 18px 20px;
+    border-top: 3px solid var(--wheat);
   }
-  .service-card.sage-top { border-top-color: var(--sage); }
-  .service-card.tan-top { border-top-color: var(--tan); }
-  .service-card h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 5px; }
-  .service-card p { font-size: 0.85rem; color: var(--muted); }
+  .service-card.t2 { border-top-color: var(--toasted); }
+  .service-card.t3 { border-top-color: var(--crust); }
+  .service-card h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 5px; }
+  .service-card p { font-size: 0.85rem; color: var(--toasted); }
   .pricing-note {
-    margin-top: 16px; padding: 16px 22px; background: var(--beige);
-    border-radius: 14px; text-align: center; font-style: italic; color: var(--muted); font-size: 0.9rem;
+    margin-top: 16px; padding: 16px 22px; background: var(--flour);
+    border: 1px solid var(--line-soft);
+    border-radius: 14px; text-align: center; font-style: italic; color: var(--toasted); font-size: 0.9rem;
   }
   .pricing-note strong {
-    display: block; font-style: normal; color: var(--terracotta);
+    display: block; font-style: normal; color: var(--crust);
     text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; margin-bottom: 4px;
   }
 
   /* logos */
   .logo-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
   .logo-cell {
-    background: #fff; border: 1px solid var(--line-soft); border-radius: 14px;
+    background: var(--flour); border: 1px solid var(--line-soft); border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
     padding: 20px 16px; min-height: 84px;
   }
@@ -256,54 +204,39 @@
   }
   .logo-cell:hover img { filter: grayscale(0); opacity: 1; }
   .logo-word {
-    font-family: "Playfair Display", serif; font-size: 1.05rem;
-    letter-spacing: 3px; color: var(--soft); text-transform: uppercase; transition: color .25s;
+    font-weight: 700; font-size: 0.95rem;
+    letter-spacing: 3px; color: var(--toasted); text-transform: uppercase; transition: color .25s;
   }
-  .logo-cell:hover .logo-word { color: var(--ink); }
+  .logo-cell:hover .logo-word { color: var(--crust); }
 
-  /* latest posts */
-  .latest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-  .latest-col > .small-label { display: block; margin-bottom: 14px; letter-spacing: 2px; }
-  .blog-post {
-    display: flex; gap: 14px; align-items: center;
-    background: #fff; border: 1px solid var(--line-soft); border-radius: 14px;
-    padding: 12px; margin-bottom: 10px; text-decoration: none;
-    transition: border-color .2s;
-  }
-  .blog-post:hover { border-color: var(--terracotta); }
-  .blog-post img { width: 74px; height: 74px; object-fit: cover; border-radius: 50%; flex-shrink: 0; }
-  .blog-post .bp-title { font-family: "Playfair Display", serif; font-size: 1rem; color: var(--ink); line-height: 1.3; }
-  .blog-post .bp-date { font-size: 0.72rem; color: var(--soft); margin-top: 3px; font-style: italic; display: block; }
-  .blog-more {
-    display: inline-block; margin-top: 6px; font-size: 0.75rem; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--terracotta); text-decoration: none;
-  }
-  .blog-more:hover { text-decoration: underline; }
-  .ig-embeds { display: flex; flex-direction: column; gap: 14px; }
-  .ig-embeds .instagram-media { margin: 0 auto !important; min-width: unset !important; border-radius: 14px !important; }
+  /* instagram strip */
   .ig-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
   .ig-strip .instagram-media { margin: 0 auto !important; min-width: unset !important; max-width: 100% !important; border-radius: 14px !important; }
-  @media (max-width: 700px) { .ig-strip { grid-template-columns: 1fr; } }
+  .blog-more {
+    display: inline-block; margin-top: 14px; font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--toasted); text-decoration: none;
+  }
+  .blog-more:hover { color: var(--crust); text-decoration: underline; }
 
   /* contact panel */
-  .contact-panel { background: var(--ink); border-radius: 20px; box-shadow: var(--shadow); padding: 38px; }
-  .contact-panel .small-label { color: var(--salmon); display: block; margin-bottom: 12px; }
+  .contact-panel { background: var(--crust); border-radius: 20px; box-shadow: var(--shadow); padding: 38px; }
+  .contact-panel .small-label { color: var(--wheat); display: block; margin-bottom: 12px; }
   .contact-panel .contact-message {
-    font-family: "Playfair Display", serif; font-style: italic;
-    font-size: 1.4rem; line-height: 1.45; color: var(--cream); margin-bottom: 24px;
+    font-family: "Caveat", cursive; font-weight: 600;
+    font-size: 1.9rem; line-height: 1.35; color: var(--flour); margin-bottom: 24px;
   }
-  .contact-panel .contact-message .accent { color: var(--salmon); }
+  .contact-panel .contact-message .accent { color: var(--wheat); }
   .contact-rows { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .contact-row .label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 2px; color: var(--tan); margin-bottom: 2px; }
-  .contact-row a { color: var(--cream); text-decoration: none; font-size: 1rem; }
-  .contact-row a:hover { color: var(--salmon); }
+  .contact-row .label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 2px; color: var(--wheat); margin-bottom: 2px; }
+  .contact-row a { color: var(--flour); text-decoration: none; font-size: 1rem; }
+  .contact-row a:hover { color: var(--wheat); }
 
   footer {
     max-width: 1280px; margin: 0 auto; padding: 0 24px 40px;
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
-    font-size: 0.75rem; color: var(--soft); letter-spacing: 1px;
+    font-size: 0.75rem; color: var(--toasted); letter-spacing: 1px;
   }
-  footer .accent { color: var(--terracotta); font-style: italic; }
+  footer .accent { font-family: "Caveat", cursive; font-weight: 600; font-size: 1.05rem; color: var(--toasted); }
 
   @media (max-width: 980px) {
     .layout { grid-template-columns: 1fr; padding-top: 110px; }
@@ -313,9 +246,8 @@
   }
   @media (max-width: 700px) {
     .panel { padding: 24px; }
-    .aud-grid2, .latest-grid, .services-grid { grid-template-columns: 1fr; }
+    .aud-grid2, .services-grid, .ig-strip { grid-template-columns: 1fr; }
     .aud-box.full { grid-column: span 1; }
-    .roles-grid { grid-template-columns: repeat(2, 1fr); }
     .logo-row { grid-template-columns: repeat(2, 1fr); }
     .contact-rows { grid-template-columns: 1fr; }
     .bg-photos .bg-half { width: 100%; }
@@ -325,265 +257,194 @@
 </head>
 <body>
 
-<!-- ===== PASSWORD GATE ===== -->
-<div id="gate">
-  <div class="gate-box">
-    <img src="logo.png" alt="ragna.is" style="max-width:220px;margin-bottom:10px;" onerror="this.style.display='none';document.getElementById('gateFallback').style.display='block';">
-    <h1 id="gateFallback" style="display:none;">Ragna <em>Björg</em></h1>
-    <div class="tagline">....og allt sem ilmar</div>
-    <form id="gateForm">
-      <label for="pw">Lykilorð</label>
-      <input type="password" id="pw" autocomplete="off" autofocus>
-      <button type="submit">Opna kynningu</button>
-    </form>
-    <div class="gate-error" id="gateError"></div>
-    <div class="gate-foot">Samstarfskynning · 2026 · Aðgangur fyrir samstarfsaðila</div>
-  </div>
-</div>
+<div class="bg-photos"><div class="bg-half bg-left"></div><div class="bg-half bg-right"></div></div>
 
-<!-- ===== CONTENT ===== -->
-<div id="content">
-  <div class="bg-photos"><div class="bg-half bg-left"></div><div class="bg-half bg-right"></div></div>
+<div class="layout">
 
-  <div class="layout">
-
-    <!-- LEFT: PROFILE CARD -->
-    <aside class="profile-card">
-      <img class="avatar" src="gullskyrta.jpg" alt="Ragna Björg">
-      <img src="logo.png" alt="ragna.is" style="max-width:190px;display:block;margin:0 auto 4px;" onerror="this.style.display='none';document.getElementById('cardFallback').style.display='block';">
-      <h1 id="cardFallback" style="display:none;">Ragna <em>Björg</em></h1>
-      <div class="profile-tagline">....og allt sem ilmar</div>
-      <div class="profile-loc">🇮🇸 Ísland · ragna.is</div>
-      <div class="total-line">Samanlögð mánaðarleg áhorf: <b>1,3M+</b></div>
-      <div class="chips">
-        <a class="chip" href="https://instagram.com/ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg> 7.300</a>
-        <a class="chip" href="https://facebook.com/ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.7V21h2.8z"/></svg> 5.800</a>
-        <a class="chip" href="https://tiktok.com/@ragnabjorg" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M16.6 3c.4 2 1.7 3.4 3.9 3.6v2.8c-1.5 0-2.8-.4-3.9-1.2v5.7c0 4.6-4.9 6.9-8.2 4.2-2.2-1.8-2.3-5.3-.2-7.2 1.2-1.1 2.7-1.5 4.3-1.2v2.9c-.9-.3-1.8-.2-2.5.5-1 1-.8 2.6.4 3.4 1.6 1 3.4-.2 3.4-2.1V3h2.8z"/></svg> 1.600</a>
-        <a class="chip" href="https://ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c-5.5 5.5-5.5 13.5 0 19M12 2.5c5.5 5.5 5.5 13.5 0 19"/></svg> 42K</a>
-      </div>
-      <div class="tags">
-        <span class="tag">Matur</span><span class="tag">Heimilið</span><span class="tag">Garðurinn</span><span class="tag">Tækni</span><span class="tag">Ferðalög</span><span class="tag">Lífsstíll</span>
-      </div>
-      <p class="profile-bio">Tæknigúrú, söngkona, efnisskapari, hjúkrunarfræðingur og lífstílsunnandi.<br>Súrdeig, græjur, heimilið, garðurinn, ferðalög og allt sem gleður.</p>
-      <a class="cta-btn" href="mailto:ragna@ragna.is">Hafðu samband</a>
-      <div class="profile-foot">Samstarfskynning · 2026</div>
-    </aside>
-
-    <!-- RIGHT: CONTENT -->
-    <div class="main-col">
-
-      <!-- STATS -->
-      <section class="panel">
-        <h2>Tölfræði <em>&amp; dreifing</em></h2>
-        <div class="panel-sub">Uppfært í júní 2026</div>
-        <div class="stats-grid">
-          <div class="stat-card hero-stat">
-            <div class="st-label"><span class="dot"></span>Áhorf á mánuði</div>
-            <div class="st-value">1,3M+</div>
-            <div class="st-note">samanlagt á öllum miðlum</div>
-          </div>
-          <div class="stat-card">
-            <div class="st-label"><span class="dot"></span>Instagram áhorf/mán</div>
-            <div class="st-value">825.000</div>
-            <div class="st-note">@ragna.is · 7.300 fylgjendur</div>
-          </div>
-          <div class="stat-card sage">
-            <div class="st-label"><span class="dot"></span>Facebook áhorf/mán</div>
-            <div class="st-value">434.400</div>
-            <div class="st-note">ragna.is · 5.800 fylgjendur</div>
-          </div>
-          <div class="stat-card tan">
-            <div class="st-label"><span class="dot"></span>ragna.is flettingar/mán</div>
-            <div class="st-value">42K</div>
-            <div class="st-note">bloggið, síðan 2010</div>
-          </div>
-          <div class="stat-card">
-            <div class="st-label"><span class="dot"></span>TikTok áhorf/mán</div>
-            <div class="st-value">14.400</div>
-            <div class="st-note">@ragnabjorg · 1.600 fylgjendur</div>
-          </div>
-          <div class="stat-card sage">
-            <div class="st-label"><span class="dot"></span>Áhorf umfram fylgjendur</div>
-            <div class="st-value">100×</div>
-            <div class="st-note">efnið nær langt út fyrir fylgjendahópinn</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PARTNERS -->
-      <section class="panel">
-        <h2>Hef unnið <em>með</em></h2>
-        <div class="panel-sub">Vörumerki sem ég hef unnið með í kostuðum birtingum, uppskriftaþróun og öðru samstarfi</div>
-        <div class="logo-row">
-          <div class="logo-cell"><img src="https://innnes.is/build/assets/logo.svg" alt="Innnes" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://www.isband.is/wp-content/uploads/2019/08/isband_logo_300x58.jpg" alt="ÍSBAND" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://lindsay.is/wp-content/uploads/2019/10/Lindsay_logo.png" alt="John Lindsay" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://danol.is/_content/OlgerdinVeva.Theme/assets/images/danol-web-logo.svg" alt="Danól" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://www.datocms-assets.com/96861/1730180156-utilif-1.svg" alt="Útilíf" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://x-sense.is/cdn/shop/files/X-Sense_LOGO-4.png?width=400" alt="X-Sense" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://static.wixstatic.com/media/28fcbb_b7b27e4d1fd945b086ad8e69ee61820a~mv2.png/v1/fill/w_236,h_230,al_c,q_85,enc_avif,quality_auto/AGRO-R-06-01.png" alt="Agro" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://static.wixstatic.com/media/246ff6_ea0e519deb474cf897fdb74bff3c5ffb~mv2.png/v1/fill/w_380,h_360,al_c,q_85,enc_avif,quality_auto/Original.png" alt="BEI Import" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://zikzakverslun.is/wp-content/uploads/2022/10/header-logo.png" alt="ZikZak" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://www.hraunsnef.is/icon.webp" alt="Hraunsnef Sveitahótel" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg" alt="Coca-Cola" loading="lazy"></div>
-          <div class="logo-cell"><img src="https://circolo.is/cdn/shop/files/logo_9f32ead8-a651-4dd2-9ea0-369b78a9c6d1.png?width=320" alt="Circolo" loading="lazy"></div>
-          <div class="logo-cell"><span class="logo-word">Nói Síríus</span></div>
-          <div class="logo-cell"><span class="logo-word">Knox Hotels</span></div>
-          <div class="logo-cell"><span class="logo-word">Vaxa</span></div>
-        </div>
-      </section>
-
-      <!-- AUDIENCE -->
-      <section class="panel">
-        <h2>Tryggir <em>áhorfendur</em></h2>
-        <div class="panel-sub">Íslenskar konur með mikinn kaupmátt sem taka ákvarðanir um innkaup heimilisins</div>
-        <div class="aud-grid2">
-          <div class="aud-box">
-            <h3><span class="dot"></span>Kyn</h3>
-            <div class="gender-split">
-              <div><div class="gender-percent women">84%</div><div class="gender-label">Konur</div></div>
-              <div><div class="gender-percent men">16%</div><div class="gender-label">Karlar</div></div>
-            </div>
-          </div>
-          <div class="aud-box">
-            <h3><span class="dot"></span>Aldur</h3>
-            <div class="bar-row"><div class="bar-label narrow">18-24</div><div class="bar-bg"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">0,3%</div></div>
-            <div class="bar-row"><div class="bar-label narrow">25-34</div><div class="bar-bg"><div class="bar-fill" style="width:16%"></div></div><div class="bar-val">4,1%</div></div>
-            <div class="bar-row"><div class="bar-label narrow">35-44</div><div class="bar-bg"><div class="bar-fill" style="width:84%"></div></div><div class="bar-val">21,3%</div></div>
-            <div class="bar-row"><div class="bar-label narrow">45-54</div><div class="bar-bg"><div class="bar-fill" style="width:97%"></div></div><div class="bar-val">24,6%</div></div>
-            <div class="bar-row"><div class="bar-label narrow">55-64</div><div class="bar-bg"><div class="bar-fill" style="width:96%"></div></div><div class="bar-val">24,4%</div></div>
-            <div class="bar-row"><div class="bar-label narrow">65+</div><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">25,3%</div></div>
-          </div>
-          <div class="aud-box full">
-            <h3><span class="dot" style="background:var(--sage);"></span>Staðsetning fylgjenda</h3>
-            <div class="bar-row"><div class="bar-label">Reykjavík</div><div class="bar-bg"><div class="bar-fill sage" style="width:100%"></div></div><div class="bar-val">40,8%</div></div>
-            <div class="bar-row"><div class="bar-label">Kópavogur</div><div class="bar-bg"><div class="bar-fill sage" style="width:34%"></div></div><div class="bar-val">13,8%</div></div>
-            <div class="bar-row"><div class="bar-label">Hafnarfjörður</div><div class="bar-bg"><div class="bar-fill sage" style="width:26%"></div></div><div class="bar-val">10,5%</div></div>
-            <div class="bar-row"><div class="bar-label">Akureyri</div><div class="bar-bg"><div class="bar-fill sage" style="width:20%"></div></div><div class="bar-val">8,2%</div></div>
-            <div class="bar-row"><div class="bar-label">Selfoss</div><div class="bar-bg"><div class="bar-fill sage" style="width:17%"></div></div><div class="bar-val">6,8%</div></div>
-            <div class="aud-note">Yfir 65% áhorfenda eru á höfuðborgarsvæðinu og 91% á Íslandi.</div>
-          </div>
-        </div>
-        <div class="insight-box">
-          <div class="quote-mark">"</div>
-          <p>Kjarnasvæðið er <strong>konur 35 ára og eldri á Íslandi</strong> — hópur sem ákveður stóran hluta af innkaupum heimilisins, eldar og bakar reglulega, stendur í framkvæmdum og treystir meðmælum frá þeim sem þær fylgja.</p>
-        </div>
-      </section>
-
-      <!-- ROLES -->
-      <section class="panel bio-panel">
-        <h2>Hæ, ég er <em>Ragna</em>.</h2>
-        <div class="panel-sub">Mörg hlutverk — eitt vörumerki</div>
-        <div class="roles-grid">
-          <div class="role">
-            <img src="songkona.jpg" alt="Ragna á sviði" loading="lazy">
-            <span class="role-label">Söngkonan</span>
-            <span class="role-sub">stórtónleikar og sviðið</span>
-          </div>
-          <div class="role">
-            <img src="hjukrun.jpg" alt="Ragna sem hjúkrunarfræðingur" loading="lazy">
-            <span class="role-label">Hjúkrunarfræðingurinn</span>
-            <span class="role-sub">fagmennska og traust</span>
-          </div>
-          <div class="role">
-            <img src="jeppi.jpg" alt="Jeppaferðir um hálendið" loading="lazy">
-            <span class="role-label">Ferðalögin</span>
-            <span class="role-sub">hálendið og heimurinn</span>
-          </div>
-          <div class="role">
-            <img src="tjald.jpg" alt="Kaffibolli í tjaldinu" loading="lazy">
-            <span class="role-label">Útiveran</span>
-            <span class="role-sub">tjaldvagn og kaffibolli</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- SERVICES -->
-      <section class="panel">
-        <h2>Samstarfs<em>möguleikar</em></h2>
-        <div class="panel-sub">Hvernig við vinnum saman</div>
-        <div class="services-grid">
-          <div class="service-card"><h3>Kostuð Instagram birting</h3><p>Mynd og texti á aðalreikningi með merkingu vörumerkis. Stories fylgja með.</p></div>
-          <div class="service-card sage-top"><h3>Reels og stutt myndbönd</h3><p>Frumsamið efni þar sem fjallað er um vöruna eða þjónustuna #samstarf</p></div>
-          <div class="service-card"><h3>Bloggfærsla á ragna.is</h3><p>Ítarleg færsla með myndum, SEO-vinnu og varanlegri viðveru á vefnum.</p></div>
-          <div class="service-card sage-top"><h3>TikTok myndbönd</h3><p>Stutt og hressandi myndbönd fyrir yngri hluta áhorfenda og víðari útbreiðslu.</p></div>
-          <div class="service-card tan-top"><h3>Uppskriftaþróun</h3><p>Sérhönnuð uppskrift með vörum vörumerkis, prófuð og ljósmynduð, tilbúin til notkunar.</p></div>
-          <div class="service-card tan-top"><h3>UGC efni</h3><p>Frumsamið mynd- og myndbandaefni sem þið getið nýtt í ykkar eigin auglýsingar og rásir.</p></div>
-          <div class="service-card"><h3>Heildarpakki</h3><p>Samtengd herferð yfir Instagram, blogg, Facebook og TikTok með samræmdum boðskap.</p></div>
-          <div class="service-card sage-top"><h3>Vörukynningar og viðburðir</h3><p>Viðvera í eigin persónu, vinnustofur, vörukynningar og viðburðir.</p></div>
-        </div>
-        <div class="pricing-note">
-          <strong>Verð</strong>
-          Verð fer eftir umfangi, lengd og rásum. Hafðu samband fyrir tilboð sem hentar verkefninu.
-        </div>
-      </section>
-
-      <!-- INSTAGRAM STRIP -->
-      <section class="panel">
-        <h2>Mest skoðað á <em>Instagram</em></h2>
-        <div class="panel-sub">Vinsælustu reels-in — live tölur beint frá Instagram</div>
-        <div class="ig-strip">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZDQLSqIsGR/" data-instgrm-version="14"></blockquote>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZvsEEWoxkO/" data-instgrm-version="14"></blockquote>
-        </div>
-        <a class="blog-more" href="https://www.instagram.com/ragna.is" target="_blank" rel="noopener">Fylgja á Instagram →</a>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="contact-panel" id="hafa-samband">
-        <span class="small-label">Hvað næst</span>
-        <div class="contact-message">
-          Ef þú heldur að við gætum unnið vel saman, <span class="accent">heyrðu þá í mér.</span> Ég svara öllum fyrirspurnum og hef gaman af að heyra hugmyndir.
-        </div>
-        <div class="contact-rows">
-          <div class="contact-row"><div class="label">Netfang</div><a href="mailto:ragna@ragna.is">ragna@ragna.is</a></div>
-          <div class="contact-row"><div class="label">Sími</div><a href="tel:+3548660781">866-0781</a></div>
-          <div class="contact-row"><div class="label">Instagram</div><a href="https://instagram.com/ragna.is" target="_blank" rel="noopener">@ragna.is</a></div>
-          <div class="contact-row"><div class="label">TikTok</div><a href="https://tiktok.com/@ragnabjorg" target="_blank" rel="noopener">@ragnabjorg</a></div>
-          <div class="contact-row"><div class="label">Vefur</div><a href="https://ragna.is" target="_blank" rel="noopener">ragna.is</a></div>
-        </div>
-      </section>
-
+  <!-- LEFT: PROFILE CARD -->
+  <aside class="profile-card">
+    <img class="avatar" src="gullskyrta.jpg" alt="Ragna Björg">
+    <img class="wordmark" src="logo.svg" alt="ragna.is">
+    <div class="profile-tagline">....og allt sem gleður</div>
+    <div class="profile-loc">🇮🇸 Ísland · ragna.is</div>
+    <div class="total-line">Samanlögð mánaðarleg áhorf: <b>1,3M+</b></div>
+    <div class="chips">
+      <a class="chip" href="https://instagram.com/ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg> 7.300</a>
+      <a class="chip" href="https://facebook.com/ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.7V21h2.8z"/></svg> 5.800</a>
+      <a class="chip" href="https://tiktok.com/@ragnabjorg" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M16.6 3c.4 2 1.7 3.4 3.9 3.6v2.8c-1.5 0-2.8-.4-3.9-1.2v5.7c0 4.6-4.9 6.9-8.2 4.2-2.2-1.8-2.3-5.3-.2-7.2 1.2-1.1 2.7-1.5 4.3-1.2v2.9c-.9-.3-1.8-.2-2.5.5-1 1-.8 2.6.4 3.4 1.6 1 3.4-.2 3.4-2.1V3h2.8z"/></svg> 1.600</a>
+      <a class="chip" href="https://ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c-5.5 5.5-5.5 13.5 0 19M12 2.5c5.5 5.5 5.5 13.5 0 19"/></svg> 42K</a>
     </div>
-  </div>
+    <div class="tags">
+      <span class="tag">Matur</span><span class="tag">Heimilið</span><span class="tag">Garðurinn</span><span class="tag">Tækni</span><span class="tag">Ferðalög</span><span class="tag">Lífsstíll</span>
+    </div>
+    <p class="profile-bio">Tæknigúrú, söngkona, efnisskapari, hjúkrunarfræðingur og lífstílsunnandi.<br>Súrdeig, græjur, heimilið, garðurinn, ferðalög og allt sem gleður.</p>
+    <a class="cta-btn" href="mailto:ragna@ragna.is">Hafðu samband</a>
+    <div class="profile-foot">Samstarfskynning · 2026</div>
+  </aside>
 
-  <footer>
-    <div>Ragna Björg · Samstarfskynning · 2026</div>
-    <div class="accent">....og allt sem ilmar</div>
-  </footer>
+  <!-- RIGHT: CONTENT -->
+  <div class="main-col">
+
+    <!-- STATS -->
+    <section class="panel">
+      <h2>Tölfræði <em>&amp; dreifing</em></h2>
+      <div class="panel-sub">Uppfært í júní 2026</div>
+      <div class="stats-grid">
+        <div class="stat-card hero-stat">
+          <div class="st-label"><span class="dot"></span>Áhorf á mánuði</div>
+          <div class="st-value">1,3M+</div>
+          <div class="st-note">samanlagt á öllum miðlum</div>
+        </div>
+        <div class="stat-card">
+          <div class="st-label"><span class="dot"></span>Instagram áhorf/mán</div>
+          <div class="st-value">825.000</div>
+          <div class="st-note">@ragna.is · 7.300 fylgjendur</div>
+        </div>
+        <div class="stat-card t2">
+          <div class="st-label"><span class="dot"></span>Facebook áhorf/mán</div>
+          <div class="st-value">434.400</div>
+          <div class="st-note">ragna.is · 5.800 fylgjendur</div>
+        </div>
+        <div class="stat-card t2">
+          <div class="st-label"><span class="dot"></span>ragna.is flettingar/mán</div>
+          <div class="st-value">42K</div>
+          <div class="st-note">bloggið, síðan 2010</div>
+        </div>
+        <div class="stat-card">
+          <div class="st-label"><span class="dot"></span>TikTok áhorf/mán</div>
+          <div class="st-value">14.400</div>
+          <div class="st-note">@ragnabjorg · 1.600 fylgjendur</div>
+        </div>
+        <div class="stat-card t2">
+          <div class="st-label"><span class="dot"></span>Áhorf umfram fylgjendur</div>
+          <div class="st-value">100×</div>
+          <div class="st-note">efnið nær langt út fyrir fylgjendahópinn</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="panel">
+      <h2>Hef unnið <em>með</em></h2>
+      <div class="panel-sub">Vörumerki sem ég hef unnið með í kostuðum birtingum, uppskriftaþróun og öðru samstarfi</div>
+      <div class="logo-row">
+        <div class="logo-cell"><img src="https://innnes.is/build/assets/logo.svg" alt="Innnes" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://www.isband.is/wp-content/uploads/2019/08/isband_logo_300x58.jpg" alt="ÍSBAND" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://lindsay.is/wp-content/uploads/2019/10/Lindsay_logo.png" alt="John Lindsay" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://danol.is/_content/OlgerdinVeva.Theme/assets/images/danol-web-logo.svg" alt="Danól" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://www.datocms-assets.com/96861/1730180156-utilif-1.svg" alt="Útilíf" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://x-sense.is/cdn/shop/files/X-Sense_LOGO-4.png?width=400" alt="X-Sense" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://static.wixstatic.com/media/28fcbb_b7b27e4d1fd945b086ad8e69ee61820a~mv2.png/v1/fill/w_236,h_230,al_c,q_85,enc_avif,quality_auto/AGRO-R-06-01.png" alt="Agro" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://static.wixstatic.com/media/246ff6_ea0e519deb474cf897fdb74bff3c5ffb~mv2.png/v1/fill/w_380,h_360,al_c,q_85,enc_avif,quality_auto/Original.png" alt="BEI Import" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://zikzakverslun.is/wp-content/uploads/2022/10/header-logo.png" alt="ZikZak" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://www.hraunsnef.is/icon.webp" alt="Hraunsnef Sveitahótel" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg" alt="Coca-Cola" loading="lazy"></div>
+        <div class="logo-cell"><img src="https://circolo.is/cdn/shop/files/logo_9f32ead8-a651-4dd2-9ea0-369b78a9c6d1.png?width=320" alt="Circolo" loading="lazy"></div>
+        <div class="logo-cell"><span class="logo-word">Nói Síríus</span></div>
+        <div class="logo-cell"><span class="logo-word">Knox Hotels</span></div>
+        <div class="logo-cell"><span class="logo-word">Vaxa</span></div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE -->
+    <section class="panel">
+      <h2>Tryggir <em>áhorfendur</em></h2>
+      <div class="panel-sub">Íslenskar konur með mikinn kaupmátt sem taka ákvarðanir um innkaup heimilisins</div>
+      <div class="aud-grid2">
+        <div class="aud-box">
+          <h3><span class="dot"></span>Kyn</h3>
+          <div class="gender-split">
+            <div><div class="gender-percent women">84%</div><div class="gender-label">Konur</div></div>
+            <div><div class="gender-percent men">16%</div><div class="gender-label">Karlar</div></div>
+          </div>
+        </div>
+        <div class="aud-box">
+          <h3><span class="dot"></span>Aldur</h3>
+          <div class="bar-row"><div class="bar-label narrow">18-24</div><div class="bar-bg"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">0,3%</div></div>
+          <div class="bar-row"><div class="bar-label narrow">25-34</div><div class="bar-bg"><div class="bar-fill" style="width:16%"></div></div><div class="bar-val">4,1%</div></div>
+          <div class="bar-row"><div class="bar-label narrow">35-44</div><div class="bar-bg"><div class="bar-fill" style="width:84%"></div></div><div class="bar-val">21,3%</div></div>
+          <div class="bar-row"><div class="bar-label narrow">45-54</div><div class="bar-bg"><div class="bar-fill" style="width:97%"></div></div><div class="bar-val">24,6%</div></div>
+          <div class="bar-row"><div class="bar-label narrow">55-64</div><div class="bar-bg"><div class="bar-fill" style="width:96%"></div></div><div class="bar-val">24,4%</div></div>
+          <div class="bar-row"><div class="bar-label narrow">65+</div><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">25,3%</div></div>
+        </div>
+        <div class="aud-box full">
+          <h3><span class="dot" style="background:var(--toasted);"></span>Staðsetning fylgjenda</h3>
+          <div class="bar-row"><div class="bar-label">Reykjavík</div><div class="bar-bg"><div class="bar-fill t2" style="width:100%"></div></div><div class="bar-val">40,8%</div></div>
+          <div class="bar-row"><div class="bar-label">Kópavogur</div><div class="bar-bg"><div class="bar-fill t2" style="width:34%"></div></div><div class="bar-val">13,8%</div></div>
+          <div class="bar-row"><div class="bar-label">Hafnarfjörður</div><div class="bar-bg"><div class="bar-fill t2" style="width:26%"></div></div><div class="bar-val">10,5%</div></div>
+          <div class="bar-row"><div class="bar-label">Akureyri</div><div class="bar-bg"><div class="bar-fill t2" style="width:20%"></div></div><div class="bar-val">8,2%</div></div>
+          <div class="bar-row"><div class="bar-label">Selfoss</div><div class="bar-bg"><div class="bar-fill t2" style="width:17%"></div></div><div class="bar-val">6,8%</div></div>
+          <div class="aud-note">Yfir 65% áhorfenda eru á höfuðborgarsvæðinu og 91% á Íslandi.</div>
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="quote-mark">"</div>
+        <p>Kjarnasvæðið er <strong>konur 35 ára og eldri á Íslandi</strong> — hópur sem ákveður stóran hluta af innkaupum heimilisins, eldar og bakar reglulega, stendur í framkvæmdum og treystir meðmælum frá þeim sem þær fylgja.</p>
+      </div>
+    </section>
+
+    <!-- COLLAGE -->
+    <section class="panel">
+      <h2>Hæ, ég er <em>Ragna</em>.</h2>
+      <div class="panel-sub">Eldhúsið, garðurinn og útiveran — daglegt líf í myndum</div>
+      <img class="collage-img" src="collage.jpg" alt="Ragna Björg — bakstur, garðurinn, útivera">
+    </section>
+
+    <!-- SERVICES -->
+    <section class="panel">
+      <h2>Samstarfs<em>möguleikar</em></h2>
+      <div class="panel-sub">Hvernig við vinnum saman</div>
+      <div class="services-grid">
+        <div class="service-card"><h3>Kostuð Instagram birting</h3><p>Mynd og texti á aðalreikningi með merkingu vörumerkis. Stories fylgja með.</p></div>
+        <div class="service-card t2"><h3>Reels og stutt myndbönd</h3><p>Frumsamið efni þar sem fjallað er um vöruna eða þjónustuna #samstarf</p></div>
+        <div class="service-card"><h3>Bloggfærsla á ragna.is</h3><p>Ítarleg færsla með myndum, SEO-vinnu og varanlegri viðveru á vefnum.</p></div>
+        <div class="service-card t2"><h3>TikTok myndbönd</h3><p>Stutt og hressandi myndbönd fyrir yngri hluta áhorfenda og víðari útbreiðslu.</p></div>
+        <div class="service-card t3"><h3>Uppskriftaþróun</h3><p>Sérhönnuð uppskrift með vörum vörumerkis, prófuð og ljósmynduð, tilbúin til notkunar.</p></div>
+        <div class="service-card t3"><h3>UGC efni</h3><p>Frumsamið mynd- og myndbandaefni sem þið getið nýtt í ykkar eigin auglýsingar og rásir.</p></div>
+        <div class="service-card"><h3>Heildarpakki</h3><p>Samtengd herferð yfir Instagram, blogg, Facebook og TikTok með samræmdum boðskap.</p></div>
+        <div class="service-card t2"><h3>Vörukynningar og viðburðir</h3><p>Viðvera í eigin persónu, vinnustofur, vörukynningar og viðburðir.</p></div>
+      </div>
+      <div class="pricing-note">
+        <strong>Verð</strong>
+        Verð fer eftir umfangi, lengd og rásum. Hafðu samband fyrir tilboð sem hentar verkefninu.
+      </div>
+    </section>
+
+    <!-- INSTAGRAM STRIP -->
+    <section class="panel">
+      <h2>Mest skoðað á <em>Instagram</em></h2>
+      <div class="panel-sub">Vinsælustu reels-in — live tölur beint frá Instagram</div>
+      <div class="ig-strip">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZDQLSqIsGR/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZvsEEWoxkO/" data-instgrm-version="14"></blockquote>
+      </div>
+      <a class="blog-more" href="https://www.instagram.com/ragna.is" target="_blank" rel="noopener">Fylgja á Instagram →</a>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-panel" id="hafa-samband">
+      <span class="small-label">Hvað næst</span>
+      <div class="contact-message">
+        Ef þú heldur að við gætum unnið vel saman, <span class="accent">heyrðu þá í mér.</span> Ég svara öllum fyrirspurnum og hef gaman af að heyra hugmyndir.
+      </div>
+      <div class="contact-rows">
+        <div class="contact-row"><div class="label">Netfang</div><a href="mailto:ragna@ragna.is">ragna@ragna.is</a></div>
+        <div class="contact-row"><div class="label">Sími</div><a href="tel:+3548660781">866-0781</a></div>
+        <div class="contact-row"><div class="label">Instagram</div><a href="https://instagram.com/ragna.is" target="_blank" rel="noopener">@ragna.is</a></div>
+        <div class="contact-row"><div class="label">TikTok</div><a href="https://tiktok.com/@ragnabjorg" target="_blank" rel="noopener">@ragnabjorg</a></div>
+        <div class="contact-row"><div class="label">Vefur</div><a href="https://ragna.is" target="_blank" rel="noopener">ragna.is</a></div>
+      </div>
+    </section>
+
+  </div>
 </div>
+
+<footer>
+  <div>Ragna Björg · Samstarfskynning · 2026</div>
+  <div class="accent">....og allt sem gleður</div>
+</footer>
 
 <script>
-// ===== LYKILORÐAVÖRN =====
-const PW_HASH = "c07cd80b1512d6a3d132584108f1a882b656d8002e56e414def5fab9f78576b9";
-
-async function sha256(str) {
-  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
-  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
-}
-
-function unlock() {
-  document.getElementById("gate").style.display = "none";
-  document.getElementById("content").style.display = "block";
-  if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
-}
-
-document.getElementById("gateForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const input = document.getElementById("pw");
-  const hash = await sha256(input.value.trim());
-  if (hash === PW_HASH) {
-    sessionStorage.setItem("ragna_auth", hash);
-    unlock();
-  } else {
-    document.getElementById("gateError").textContent = "Rangt lykilorð — reyndu aftur.";
-    input.value = "";
-    input.focus();
-  }
-});
-
-if (sessionStorage.getItem("ragna_auth") === PW_HASH) unlock();
-
 // ===== LÓGÓ FALLBACK: ef mynd hleðst ekki birtist nafnið í staðinn =====
 document.querySelectorAll(".logo-cell img").forEach(img => {
   img.addEventListener("error", () => {
@@ -594,6 +455,14 @@ document.querySelectorAll(".logo-cell img").forEach(img => {
   });
 });
 
+// ===== POSTHOG =====
+// Settu project API key frá PostHog hér (Settings → Project API key)
+const POSTHOG_KEY = "";
+const POSTHOG_HOST = "https://eu.i.posthog.com"; // eða https://us.i.posthog.com
+if (POSTHOG_KEY) {
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init(POSTHOG_KEY, { api_host: POSTHOG_HOST, person_profiles: "identified_only" });
+}
 </script>
 <script async src="https://www.instagram.com/embed.js"></script>
 
