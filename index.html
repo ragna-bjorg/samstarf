@@ -508,7 +508,7 @@ document.querySelectorAll(".logo-cell img").forEach(img => {
 });
 
 // ===== LÆST EFNI (aðgangsorð opnar allt í einu) =====
-const LOCK_HASH = "e54bcfbdb4a1c2e1c5c2cebdbeb3dace431429a218bb0bff16193a00f8868e5b";
+const LOCK_HASH = "655698ff48908900c0ac4ccac848c2d00f7fe6e0213de1d1fece6707c8e0e5bb";
 async function sha256(str) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
   return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
