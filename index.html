@@ -8,10 +8,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
+  @font-face { font-family: "Gantari"; src: url("fonts/Gantari.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+  @font-face { font-family: "Caveat"; src: url("fonts/Caveat.ttf") format("truetype"); font-weight: 400 700; font-display: swap; }
   :root {
     /* ragna.is brand palette (sourdough) */
     --crust: #4A3524;      /* all lettering, logo ink */
@@ -116,7 +115,7 @@
     background: var(--crumb); border-radius: 20px;
     box-shadow: var(--shadow); padding: 34px;
   }
-  .panel > h2 { font-size: 1.7rem; margin-bottom: 6px; }
+  .panel > h2 { font-family: "Caveat", cursive; font-weight: 600; font-size: 2.4rem; line-height: 1.05; margin-bottom: 6px; }
   .panel > h2 em { font-style: normal; color: var(--toasted); }
   .panel-sub { font-size: 0.85rem; color: var(--toasted); font-style: italic; margin-bottom: 22px; }
 
@@ -132,7 +131,7 @@
   }
   .stat-card .st-label .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wheat); flex-shrink: 0; }
   .stat-card.t2 .st-label .dot { background: var(--toasted); }
-  .stat-card .st-value { font-weight: 700; font-size: 2rem; line-height: 1.1; color: var(--crust); }
+  .stat-card .st-value { font-family: "Caveat", cursive; font-weight: 600; font-size: 2.6rem; line-height: 1; color: var(--crust); }
   .stat-card .st-note { font-size: 0.72rem; color: var(--toasted); margin-top: 3px; }
   .stat-card.hero-stat { background: var(--crust); border-color: var(--crust); }
   .stat-card.hero-stat .st-label { color: var(--wheat); }
@@ -147,7 +146,7 @@
   .aud-box h3 .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--wheat); }
   .aud-box.full { grid-column: span 2; }
   .gender-split { display: flex; justify-content: center; gap: 44px; text-align: center; padding: 8px 0 4px; }
-  .gender-percent { font-weight: 700; font-size: 2.4rem; line-height: 1; }
+  .gender-percent { font-family: "Caveat", cursive; font-weight: 600; font-size: 3rem; line-height: 1; }
   .gender-percent.women { color: var(--crust); }
   .gender-percent.men { color: var(--toasted); }
   .gender-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--toasted); margin-top: 6px; }
@@ -272,6 +271,41 @@
   .lock-form button:hover { background: var(--wheat-dark); }
   .lock-error { font-size: 0.8rem; color: var(--crust); font-weight: 600; min-height: 1.2em; }
 
+
+  /* top content */
+  .video-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .video-card {
+    display: block; position: relative; border-radius: 14px; overflow: hidden;
+    background: var(--flour); border: 1px solid var(--line-soft); text-decoration: none; color: var(--crust);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .video-card:hover { transform: translateY(-3px); border-color: var(--wheat); }
+  .video-card img { width: 100%; aspect-ratio: 9 / 14; object-fit: cover; display: block; }
+  .video-card .vc-views {
+    position: absolute; top: 10px; left: 10px;
+    background: rgba(74,53,36,0.85); color: var(--flour);
+    font-size: 0.78rem; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+  }
+  .video-card .vc-platform {
+    position: absolute; top: 10px; right: 10px; width: 26px; height: 26px; border-radius: 50%;
+    background: rgba(247,241,230,0.92); display: flex; align-items: center; justify-content: center; color: var(--crust);
+  }
+  .video-card .vc-body { padding: 10px 12px 12px; }
+  .video-card .vc-title { font-size: 0.82rem; font-weight: 700; line-height: 1.3; }
+  .video-card .vc-sub { font-size: 0.72rem; color: var(--toasted); margin-top: 3px; }
+  .sub-head { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--toasted); font-weight: 700; margin: 18px 0 10px; }
+  .sub-head:first-of-type { margin-top: 0; }
+
+  /* case study */
+  .case-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  .case-kpi { background: var(--flour); border: 1px solid var(--line-soft); border-radius: 14px; padding: 16px 18px; }
+  .case-kpi .ck-value { font-family: "Caveat", cursive; font-weight: 600; font-size: 2.4rem; line-height: 1; }
+  .case-kpi .ck-label { font-size: 0.74rem; color: var(--toasted); margin-top: 3px; }
+  .case-text { font-size: 0.92rem; color: var(--toasted); margin-bottom: 16px; }
+  .case-text strong { color: var(--crust); }
+  @media (max-width: 980px) { .video-grid { grid-template-columns: repeat(3, 1fr); } .case-kpis { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
+
   @media (max-width: 980px) {
     .layout { grid-template-columns: 1fr; padding-top: 110px; }
     .profile-card { position: static; }
@@ -300,11 +334,11 @@
     <img class="avatar" src="avatar.jpg" alt="Ragna Björg með nýbakað brauð">
     <img class="wordmark" src="logo.svg" alt="ragna.is">
     <div class="profile-tagline">....og allt sem gleður</div>
-    <div class="total-line">Samanlögð mánaðarleg áhorf: <b>1,4M+</b></div>
+    <div class="total-line">Allt að <b>1,4M</b> áhorf á mánuði</div>
     <div class="chips">
-      <a class="chip" href="https://instagram.com/ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg> 7.300</a>
+      <a class="chip" href="https://instagram.com/ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg> 7.500</a>
       <a class="chip" href="https://facebook.com/ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.7V21h2.8z"/></svg> 5.800</a>
-      <a class="chip" href="https://tiktok.com/@ragnabjorg" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M16.6 3c.4 2 1.7 3.4 3.9 3.6v2.8c-1.5 0-2.8-.4-3.9-1.2v5.7c0 4.6-4.9 6.9-8.2 4.2-2.2-1.8-2.3-5.3-.2-7.2 1.2-1.1 2.7-1.5 4.3-1.2v2.9c-.9-.3-1.8-.2-2.5.5-1 1-.8 2.6.4 3.4 1.6 1 3.4-.2 3.4-2.1V3h2.8z"/></svg> 1.600</a>
+      <a class="chip" href="https://tiktok.com/@ragnabjorg" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M16.6 3c.4 2 1.7 3.4 3.9 3.6v2.8c-1.5 0-2.8-.4-3.9-1.2v5.7c0 4.6-4.9 6.9-8.2 4.2-2.2-1.8-2.3-5.3-.2-7.2 1.2-1.1 2.7-1.5 4.3-1.2v2.9c-.9-.3-1.8-.2-2.5.5-1 1-.8 2.6.4 3.4 1.6 1 3.4-.2 3.4-2.1V3h2.8z"/></svg> 1.800</a>
       <a class="chip" href="https://ragna.is" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c-5.5 5.5-5.5 13.5 0 19M12 2.5c5.5 5.5 5.5 13.5 0 19"/></svg> 42K</a>
     </div>
     <div class="tags">
@@ -321,23 +355,23 @@
     <!-- STATS -->
     <section class="panel locked">
       <h2>Tölfræði <em>&amp; dreifing</em></h2>
-      <div class="panel-sub">Uppfært 1. júlí 2026</div>
+      <div class="panel-sub">Uppfært 6. október 2026 · miðlatölur eru meðaltal síðustu 90 daga</div>
       <div class="lock-blur">
       <div class="stats-grid">
         <div class="stat-card hero-stat">
           <div class="st-label"><span class="dot"></span>Áhorf á mánuði</div>
-          <div class="st-value">1,4M+</div>
-          <div class="st-note">samanlagt á öllum miðlum</div>
+          <div class="st-value">allt að 1,4M</div>
+          <div class="st-note">samanlagt á öllum miðlum í sterkasta mánuði (júní 2026). Meðaltal síðustu 90 daga: um 770.000</div>
         </div>
         <div class="stat-card">
           <div class="st-label"><span class="dot"></span>Instagram áhorf/mán</div>
-          <div class="st-value">928.000</div>
-          <div class="st-note">@ragna.is · 7.300 fylgjendur</div>
+          <div class="st-value">541.000</div>
+          <div class="st-note">@ragna.is · 7.517 fylgjendur · 61.000 einstakir áhorfendur á 90 dögum</div>
         </div>
         <div class="stat-card t2">
           <div class="st-label"><span class="dot"></span>Facebook áhorf/mán</div>
-          <div class="st-value">419.800</div>
-          <div class="st-note">ragna.is · 5.800 fylgjendur</div>
+          <div class="st-value">161.000</div>
+          <div class="st-note">ragna.is · 5.800 fylgjendur · 52% áhorfa frá fólki sem fylgir ekki</div>
         </div>
         <div class="stat-card t2">
           <div class="st-label"><span class="dot"></span>ragna.is flettingar/mán</div>
@@ -346,12 +380,12 @@
         </div>
         <div class="stat-card">
           <div class="st-label"><span class="dot"></span>TikTok áhorf/mán</div>
-          <div class="st-value">14.400</div>
-          <div class="st-note">@ragnabjorg · 1.600 fylgjendur</div>
+          <div class="st-value">27.400</div>
+          <div class="st-note">@ragnabjorg · 1.797 fylgjendur · 92% áhorfa úr For You</div>
         </div>
         <div class="stat-card t2">
           <div class="st-label"><span class="dot"></span>Áhorf umfram fylgjendur</div>
-          <div class="st-value">100×</div>
+          <div class="st-value">50×</div>
           <div class="st-note">efnið nær langt út fyrir fylgjendahópinn</div>
         </div>
       </div>
@@ -369,38 +403,39 @@
     <!-- AUDIENCE -->
     <section class="panel locked">
       <h2>Tryggir <em>áhorfendur</em></h2>
-      <div class="panel-sub">Íslenskar konur með mikinn kaupmátt sem taka ákvarðanir um innkaup heimilisins</div>
+      <div class="panel-sub">Íslenskar konur með mikinn kaupmátt sem taka ákvarðanir um innkaup heimilisins · uppfært 6. október 2026</div>
       <div class="lock-blur">
       <div class="aud-grid2">
         <div class="aud-box">
           <h3><span class="dot"></span>Kyn</h3>
           <div class="gender-split">
-            <div><div class="gender-percent women">84%</div><div class="gender-label">Konur</div></div>
-            <div><div class="gender-percent men">16%</div><div class="gender-label">Karlar</div></div>
+            <div><div class="gender-percent women">84,3%</div><div class="gender-label">Konur</div></div>
+            <div><div class="gender-percent men">15,7%</div><div class="gender-label">Karlar</div></div>
           </div>
         </div>
         <div class="aud-box">
-          <h3><span class="dot"></span>Aldur</h3>
-          <div class="bar-row"><div class="bar-label narrow">18-24</div><div class="bar-bg"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">0,3%</div></div>
-          <div class="bar-row"><div class="bar-label narrow">25-34</div><div class="bar-bg"><div class="bar-fill" style="width:16%"></div></div><div class="bar-val">4,1%</div></div>
-          <div class="bar-row"><div class="bar-label narrow">35-44</div><div class="bar-bg"><div class="bar-fill" style="width:84%"></div></div><div class="bar-val">21,3%</div></div>
-          <div class="bar-row"><div class="bar-label narrow">45-54</div><div class="bar-bg"><div class="bar-fill" style="width:97%"></div></div><div class="bar-val">24,6%</div></div>
-          <div class="bar-row"><div class="bar-label narrow">55-64</div><div class="bar-bg"><div class="bar-fill" style="width:96%"></div></div><div class="bar-val">24,4%</div></div>
-          <div class="bar-row"><div class="bar-label narrow">65+</div><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">25,3%</div></div>
+          <h3><span class="dot"></span>Aldur fylgjenda</h3>
+          <div class="bar-row"><div class="bar-label narrow">18-24</div><div class="bar-bg"><div class="bar-fill" style="width:4%"></div></div><div class="bar-val">1,2%</div></div>
+          <div class="bar-row"><div class="bar-label narrow">25-34</div><div class="bar-bg"><div class="bar-fill" style="width:34%"></div></div><div class="bar-val">10,0%</div></div>
+          <div class="bar-row"><div class="bar-label narrow">35-44</div><div class="bar-bg"><div class="bar-fill" style="width:94%"></div></div><div class="bar-val">27,8%</div></div>
+          <div class="bar-row"><div class="bar-label narrow">45-54</div><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">29,7%</div></div>
+          <div class="bar-row"><div class="bar-label narrow">55-64</div><div class="bar-bg"><div class="bar-fill" style="width:68%"></div></div><div class="bar-val">20,1%</div></div>
+          <div class="bar-row"><div class="bar-label narrow">65+</div><div class="bar-bg"><div class="bar-fill" style="width:37%"></div></div><div class="bar-val">11,1%</div></div>
+          <div class="aud-note">Instagram, október 2026. Á Facebook er hópurinn eldri: 76% fylgjenda eru 45 ára og eldri.</div>
         </div>
         <div class="aud-box full">
-          <h3><span class="dot" style="background:var(--toasted);"></span>Staðsetning fylgjenda</h3>
-          <div class="bar-row"><div class="bar-label">Reykjavík</div><div class="bar-bg"><div class="bar-fill t2" style="width:100%"></div></div><div class="bar-val">40,8%</div></div>
-          <div class="bar-row"><div class="bar-label">Kópavogur</div><div class="bar-bg"><div class="bar-fill t2" style="width:34%"></div></div><div class="bar-val">13,8%</div></div>
-          <div class="bar-row"><div class="bar-label">Hafnarfjörður</div><div class="bar-bg"><div class="bar-fill t2" style="width:26%"></div></div><div class="bar-val">10,5%</div></div>
-          <div class="bar-row"><div class="bar-label">Akureyri</div><div class="bar-bg"><div class="bar-fill t2" style="width:20%"></div></div><div class="bar-val">8,2%</div></div>
-          <div class="bar-row"><div class="bar-label">Selfoss</div><div class="bar-bg"><div class="bar-fill t2" style="width:17%"></div></div><div class="bar-val">6,8%</div></div>
-          <div class="aud-note">Yfir 65% áhorfenda eru á höfuðborgarsvæðinu og 91% á Íslandi.</div>
+          <h3><span class="dot" style="background:var(--toasted);"></span>Staðsetning fylgjenda á Facebook</h3>
+          <div class="bar-row"><div class="bar-label">Reykjavík</div><div class="bar-bg"><div class="bar-fill t2" style="width:100%"></div></div><div class="bar-val">43,5%</div></div>
+          <div class="bar-row"><div class="bar-label">Kópavogur</div><div class="bar-bg"><div class="bar-fill t2" style="width:29%"></div></div><div class="bar-val">12,6%</div></div>
+          <div class="bar-row"><div class="bar-label">Hafnarfjörður</div><div class="bar-bg"><div class="bar-fill t2" style="width:24%"></div></div><div class="bar-val">10,4%</div></div>
+          <div class="bar-row"><div class="bar-label">Akureyri</div><div class="bar-bg"><div class="bar-fill t2" style="width:20%"></div></div><div class="bar-val">8,5%</div></div>
+          <div class="bar-row"><div class="bar-label">Selfoss</div><div class="bar-bg"><div class="bar-fill t2" style="width:15%"></div></div><div class="bar-val">6,6%</div></div>
+          <div class="aud-note">Yfir 66% fylgjenda eru á höfuðborgarsvæðinu. 91% fylgjenda á Instagram og 92% á Facebook eru á Íslandi. Á TikTok eru áhorfendur yngri: 66% konur, stærstu hóparnir 25-34 ára (31%) og 45-54 ára (31%), 96% á Íslandi.</div>
         </div>
       </div>
       <div class="insight-box">
         <div class="quote-mark">"</div>
-        <p>Kjarnahópurinn er <strong>konur 35 ára og eldri á Íslandi</strong> — hópur sem ákveður stóran hluta af innkaupum heimilisins, eldar og bakar reglulega, stendur í framkvæmdum og treystir meðmælum frá þeim sem þær fylgja.</p>
+        <p>Kjarnahópurinn er <strong>konur 35 til 64 ára á Íslandi</strong>, hópur sem ákveður stóran hluta af innkaupum heimilisins, eldar og bakar reglulega, stendur í framkvæmdum og treystir meðmælum frá þeim sem þær fylgja.</p>
       </div>
     </div>
       <div class="lock-overlay">
@@ -416,8 +451,71 @@
     <!-- COLLAGE -->
     <section class="panel">
       <h2>Hæ, ég er <em>Ragna</em>.</h2>
-      <div class="panel-sub">Eldhúsið, garðurinn og útiveran — daglegt líf í myndum</div>
-      <img class="collage-img" src="collage.jpg" alt="Ragna Björg — bakstur, garðurinn, útivera">
+      <div class="panel-sub">Eldhúsið, garðurinn og útiveran, daglegt líf í myndum</div>
+      <img class="collage-img" src="collage.jpg" alt="Ragna Björg, bakstur, garðurinn, útivera">
+    </section>
+
+
+    <!-- TOP CONTENT -->
+    <section class="panel">
+      <h2>Vinsælasta <em>efnið</em></h2>
+      <div class="panel-sub">Mest skoðuðu myndböndin á Instagram og TikTok, smelltu til að horfa</div>
+      <div class="sub-head">Instagram Reels</div>
+      <div class="video-grid">
+        <a class="video-card" href="https://www.instagram.com/reel/DLvddZtgSxB/" target="_blank" rel="noopener">
+          <img src="img/ig-hjonabandssaela.jpg" alt="Hjónabandssæla" loading="lazy">
+          <span class="vc-views">159K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Hjónabandssæla</div><div class="vc-sub">Uppskrift · júlí 2025</div></div>
+        </a>
+        <a class="video-card" href="https://www.instagram.com/reel/DZDQLSqIsGR/" target="_blank" rel="noopener">
+          <img src="img/ig-pizza.jpg" alt="Pizza a la Ragna" loading="lazy">
+          <span class="vc-views">113K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Pizza a la Ragna</div><div class="vc-sub">Uppskrift · júní 2026</div></div>
+        </a>
+        <a class="video-card" href="https://www.instagram.com/reel/DSGHySoCHTY/" target="_blank" rel="noopener">
+          <img src="img/ig-mondlur.jpg" alt="Ristaðar möndlur" loading="lazy">
+          <span class="vc-views">108K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Ristaðar möndlur</div><div class="vc-sub">Jólauppskrift · des 2025</div></div>
+        </a>
+        <a class="video-card" href="https://www.instagram.com/reel/DNqrd2Ro6Fg/" target="_blank" rel="noopener">
+          <img src="img/ig-flatey.jpg" alt="Vinkonuferð til Flateyjar" loading="lazy">
+          <span class="vc-views">103K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Vinkonuferð til Flateyjar</div><div class="vc-sub">Ferðalög · ágúst 2025</div></div>
+        </a>
+        <a class="video-card" href="https://www.instagram.com/reel/DLNl6TdIL5i/" target="_blank" rel="noopener">
+          <img src="img/ig-utilegumatur.jpg" alt="Ferskari útilegumatur" loading="lazy">
+          <span class="vc-views">100K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Ferskari útilegumatur</div><div class="vc-sub">Útivera · júní 2025</div></div>
+        </a>
+      </div>
+      <div class="sub-head">TikTok og kostað efni</div>
+      <div class="video-grid">
+        <a class="video-card" href="https://www.tiktok.com/@ragnabjorg/video/7646479180850334998" target="_blank" rel="noopener">
+          <img src="img/tt-pizza.jpg" alt="Pizza a la Ragna" loading="lazy">
+          <span class="vc-views">37K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M16.6 3c.4 2 1.7 3.4 3.9 3.6v2.8c-1.5 0-2.8-.4-3.9-1.2v5.7c0 4.6-4.9 6.9-8.2 4.2-2.2-1.8-2.3-5.3-.2-7.2 1.2-1.1 2.7-1.5 4.3-1.2v2.9c-.9-.3-1.8-.2-2.5.5-1 1-.8 2.6.4 3.4 1.6 1 3.4-.2 3.4-2.1V3h2.8z"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Pizza a la Ragna</div><div class="vc-sub">Uppskrift · júní 2026</div></div>
+        </a>
+        <a class="video-card" href="https://www.tiktok.com/@ragnabjorg/video/7370458471575194913" target="_blank" rel="noopener">
+          <img src="img/tt-pizzafraedi.jpg" alt="Pizzafræði Rögnu" loading="lazy">
+          <span class="vc-views">27K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M16.6 3c.4 2 1.7 3.4 3.9 3.6v2.8c-1.5 0-2.8-.4-3.9-1.2v5.7c0 4.6-4.9 6.9-8.2 4.2-2.2-1.8-2.3-5.3-.2-7.2 1.2-1.1 2.7-1.5 4.3-1.2v2.9c-.9-.3-1.8-.2-2.5.5-1 1-.8 2.6.4 3.4 1.6 1 3.4-.2 3.4-2.1V3h2.8z"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Pizzafræði Rögnu</div><div class="vc-sub">Ooni ofn · 2024</div></div>
+        </a>
+        <a class="video-card" href="https://www.tiktok.com/@ragnabjorg/video/7634974434561936662" target="_blank" rel="noopener">
+          <img src="img/tt-suffukaka.jpg" alt="Einfaldasta súffukakan" loading="lazy">
+          <span class="vc-views">20K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M16.6 3c.4 2 1.7 3.4 3.9 3.6v2.8c-1.5 0-2.8-.4-3.9-1.2v5.7c0 4.6-4.9 6.9-8.2 4.2-2.2-1.8-2.3-5.3-.2-7.2 1.2-1.1 2.7-1.5 4.3-1.2v2.9c-.9-.3-1.8-.2-2.5.5-1 1-.8 2.6.4 3.4 1.6 1 3.4-.2 3.4-2.1V3h2.8z"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Einfaldasta súffukakan</div><div class="vc-sub">Uppskrift · maí 2026</div></div>
+        </a>
+        <a class="video-card" href="https://www.tiktok.com/@ragnabjorg/video/7682379096550067459" target="_blank" rel="noopener">
+          <img src="img/tt-pottur.jpg" alt="Lokið á heita pottinum" loading="lazy">
+          <span class="vc-views">17K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M16.6 3c.4 2 1.7 3.4 3.9 3.6v2.8c-1.5 0-2.8-.4-3.9-1.2v5.7c0 4.6-4.9 6.9-8.2 4.2-2.2-1.8-2.3-5.3-.2-7.2 1.2-1.1 2.7-1.5 4.3-1.2v2.9c-.9-.3-1.8-.2-2.5.5-1 1-.8 2.6.4 3.4 1.6 1 3.4-.2 3.4-2.1V3h2.8z"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Lokið á heita pottinum</div><div class="vc-sub">Garðurinn · sept 2026</div></div>
+        </a>
+        <a class="video-card" href="https://www.instagram.com/reel/DZfljJco506/" target="_blank" rel="noopener">
+          <img src="img/ig-roboup.jpg" alt="RoboUP róbótasláttuvél" loading="lazy">
+          <span class="vc-views">99K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">RoboUP róbótasláttuvél</div><div class="vc-sub">Samstarf · Instagram · júní 2026</div></div>
+        </a>
+      </div>
     </section>
 
     <!-- PARTNERS -->
@@ -443,6 +541,58 @@
         <div class="logo-cell"><img src="vaxa.png" alt="Vaxa" loading="lazy"></div>
       </div>
     </div>
+      <div class="lock-overlay">
+        <div class="lock-hint">🔒 Læst efni</div>
+        <form class="lock-form">
+          <input type="password" placeholder="Aðgangsorð" autocomplete="off" aria-label="Aðgangsorð">
+          <button type="submit">Opna</button>
+        </form>
+        <div class="lock-error"></div>
+      </div>
+    </section>
+
+
+    <!-- CASE STUDY -->
+    <section class="panel locked" data-lock="case">
+      <h2>Dæmi um <em>samstarf</em></h2>
+      <div class="panel-sub">ÍSBAND · Jeep Wrangler Rubicon 4xe · sumar 2026</div>
+      <div class="lock-blur">
+      <p class="case-text">Í tólf vikur var Jeep Wrangler Rubicon 4xe fjölskyldubíllinn okkar: hálendið, Heiðmörk, Norðausturland og búðarferðirnar. Efnið var ekki auglýsing heldur <strong>bíll í daglegu lífi</strong>, og það skilaði sér í dreifingu langt út fyrir fylgjendahópinn.</p>
+      <div class="case-kpis">
+        <div class="case-kpi"><div class="ck-value">128K</div><div class="ck-label">áhorf á 5 færslum á Instagram, Facebook og TikTok</div></div>
+        <div class="case-kpi"><div class="ck-value">61,5%</div><div class="ck-label">áhorfa á fyrsta reelinu frá fólki sem fylgir mér ekki</div></div>
+        <div class="case-kpi"><div class="ck-value">233K</div><div class="ck-label">áhorf til viðbótar á 4 færslum þar sem bíllinn sést (vöruinnsetning)</div></div>
+        <div class="case-kpi"><div class="ck-value">19</div><div class="ck-label">stories og eigið highlight sem stendur áfram á prófílnum</div></div>
+      </div>
+      <div class="video-grid">
+        <a class="video-card" href="https://www.instagram.com/reel/DaQpUKBIXCo/" target="_blank" rel="noopener">
+          <img src="img/jeep-reel1.jpg" alt="Jeep Wrangler Rubicon 4xe í sumar" loading="lazy">
+          <span class="vc-views">58K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Jeep Wrangler Rubicon 4xe í sumar</div><div class="vc-sub">Reel 1 · júlí 2026 · 61,5% utan fylgjenda</div></div>
+        </a>
+        <a class="video-card" href="https://www.instagram.com/p/DabYGB7COkk/" target="_blank" rel="noopener">
+          <img src="img/jeep-nordaustur.jpg" alt="Ferðadagur um Norðausturland" loading="lazy">
+          <span class="vc-views">16K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Ferðadagur um Norðausturland</div><div class="vc-sub">Myndafærsla · júlí 2026</div></div>
+        </a>
+        <a class="video-card" href="https://www.instagram.com/reel/Db1gIceIBZW/" target="_blank" rel="noopener">
+          <img src="img/jeep-heidmork.jpg" alt="Sól, Rubicon og þakið af" loading="lazy">
+          <span class="vc-views">23K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Sól, Rubicon og þakið af</div><div class="vc-sub">Reel 2 · ágúst 2026</div></div>
+        </a>
+        <a class="video-card" href="https://www.instagram.com/reel/Db9K3kWoozR/" target="_blank" rel="noopener">
+          <img src="img/jeep-halendi.jpg" alt="Hálendið er tilfinning" loading="lazy">
+          <span class="vc-views">21K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Hálendið er tilfinning</div><div class="vc-sub">Reel 3 · ágúst 2026</div></div>
+        </a>
+        <a class="video-card" href="https://www.instagram.com/reel/DeAXeb1olZl/" target="_blank" rel="noopener">
+          <img src="img/jeep-loka.jpg" alt="Samantekt sumarsins" loading="lazy">
+          <span class="vc-views">10K</span><span class="vc-platform"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.8" cy="6.2" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <div class="vc-body"><div class="vc-title">Samantekt sumarsins</div><div class="vc-sub">Lokafærsla · október 2026</div></div>
+        </a>
+      </div>
+      <p class="case-text" style="margin:14px 0 0">Áhorf samtals á öllum miðlum. Á TikTok fundu nýir áhorfendur efnið með leit að „iceland rubicon" og „jeppar á íslandi", og 93% áhorfenda þar voru ekki fylgjendur.</p>
+      </div>
       <div class="lock-overlay">
         <div class="lock-hint">🔒 Læst efni</div>
         <form class="lock-form">
@@ -492,7 +642,7 @@
 </div>
 
 <footer>
-  <div>Ragna Björg · Samstarfskynning · 2026</div>
+  <div style="display:flex;align-items:center;gap:10px"><img src="mark.svg" alt="" style="height:18px"> Ragna Björg · Samstarfskynning · 2026</div>
   <div class="accent">....og allt sem gleður</div>
 </footer>
 
@@ -508,13 +658,14 @@ document.querySelectorAll(".logo-cell img").forEach(img => {
 });
 
 // ===== LÆST EFNI (aðgangsorð opnar allt í einu) =====
-const LOCK_HASH = "655698ff48908900c0ac4ccac848c2d00f7fe6e0213de1d1fece6707c8e0e5bb";
+const LOCK_HASHES = { main: "655698ff48908900c0ac4ccac848c2d00f7fe6e0213de1d1fece6707c8e0e5bb", case: "1f58b1e965af65127ac83fca0a4daff741d74d4fe07f143bc44d46ebeb34ecf0" };
 async function sha256(str) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
   return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
 }
-function unlockAll() {
+function unlockAll(group) {
   document.querySelectorAll(".locked").forEach(sec => {
+    if ((sec.dataset.lock || "main") !== group) return;
     const b = sec.querySelector(".lock-blur"); if (b) b.classList.remove("lock-blur");
     const o = sec.querySelector(".lock-overlay"); if (o) o.remove();
     sec.classList.remove("locked", "show");
@@ -528,16 +679,17 @@ document.querySelectorAll(".lock-form").forEach(f => {
     e.preventDefault();
     const input = f.querySelector("input");
     const h = await sha256(input.value.trim());
-    if (h === LOCK_HASH) {
-      sessionStorage.setItem("ragna_unlock", h);
-      unlockAll();
+    const group = f.closest(".locked").dataset.lock || "main";
+    if (h === LOCK_HASHES[group]) {
+      sessionStorage.setItem("ragna_unlock_" + group, h);
+      unlockAll(group);
     } else {
       f.parentElement.querySelector(".lock-error").textContent = "Rangt aðgangsorð";
       input.value = ""; input.focus();
     }
   });
 });
-if (sessionStorage.getItem("ragna_unlock") === LOCK_HASH) unlockAll();
+Object.keys(LOCK_HASHES).forEach(g => { if (sessionStorage.getItem("ragna_unlock_" + g) === LOCK_HASHES[g]) unlockAll(g); });
 
 // ===== POSTHOG =====
 // Settu project API key frá PostHog hér (Settings → Project API key)
